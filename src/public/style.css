@@ -19,143 +19,57 @@ body {
 .container {
     @apply px-10 lg:px-16 4xl:px-[500px] 6xl:px-[700px]
 }
-/* Màu nền cho toàn bộ menu */
-.ant-layout-sider-dark {
-  background: #000 !important;
-  padding: 0 10px!important;
-}
+@keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.8;
+            }
+            100% {
+                width: 800px;
+                height: 800px;
+                opacity: 0;
+            }
+        }
 
-/* Khi item đang active */
-.ant-menu-dark.ant-menu-inline .ant-menu-item-selected,
-.ant-menu-dark.ant-menu-inline-collapsed .ant-menu-item-selected {
-  background-color: #F3C11B !important;
-  color: #000 !important;
-  border-radius: 10px !important;
-}
+        .ripple-ring {
+            position: absolute;
+            border: 2px solid rgba(68, 156, 239, 0.6);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: ripple 2s ease-out infinite;
+        }
 
-/* Đảm bảo icon trong trạng thái active cũng đổi màu */
-.ant-menu-dark .ant-menu-item-selected .anticon {
-  color: #000 !important;
-}
+        .ripple-1 {
+          
+            animation-delay: 0s;
+        }
 
+        .ripple-2 {
+            animation-delay: 0.6s;
+        }
 
+        .ripple-3 {
+            animation-delay: 1.2s;
+        }
+        .ripple-4 {
+            animation-delay: 1.8s;
+        }
+        .ripple-5 {
+            animation-delay: 2.1s;
+        }
 
-.ant-select-selection-placeholder {
-  font-weight: bold !important;
-}
-/* Hover giữ màu đen xám */
-.ant-menu-dark .ant-menu-item:hover {
-  background-color: #333 !important;
-  color: #fff !important;
-}
+        .pill-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
 
-.ant-card-head {
-    border-bottom: none !important;
-}
-
-.ant-tabs-nav-list {
-  display: flex !important;
-  justify-content: space-between !important;
-  gap: 20px !important;
-  width: 100% !important;
-  border-radius: 20px !important;
-  padding: 5px !important;
-  background: #ffffff !important;  /* nền trắng */
-}
-
-
-.ant-tabs-tab {
-    font-weight: 600 !important;
-    padding: 10px  !important;
-    justify-content: center !important;
-    width: 33.33% !important;
-    
-}
-
-/* Tab active */
-.ant-tabs-tab-active {
-  background: rgb(226, 225, 225) !important;   /* nền trắng */
-  font-weight: 600 !important;
-  border-radius: 20px !important;
-  border: none !important;
-  color: #000 !important;       /* chữ vàng nhạt */
-  justify-content: center !important;
-  text-align: center !important;
-}
-
-/* Nút bên trong tab */
-.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #000 !important;       /* chữ vàng nhạt */
-  width: 100%;
-  text-align: center;
-}
-
-/* Ẩn underline xanh */
-.ant-tabs-ink-bar {
-  display: none !important;
-}
-
-.ant-card-bordered {
-  border-radius: 20px !important;
-  padding: 10px !important;
-}
-
-.ant-tag {
-  display: inline-block;
-  height: auto;
-  margin-inline-end: 0; /* tức là margin-right trong LTR */
-  padding-inline: 7px;
-  font-size: 16px;
-  line-height: 22px;
-  white-space: nowrap;
-  background: #f0f0f0;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-}
-
-
-.ant-card {
-  background: #fff;
-  border-radius: 8px;
-  border: 1px solid #242323;
-}
-
-.ant-input[readonly] {
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  height: auto !important;
-  line-height: normal !important;
-  vertical-align: middle;
-}
-
-.ant-modal-title {
-  width: 300px !important;
-}
-
-.ant-card-head-title{
-  padding: 15px 0 !important;
-}
-
-.gradient-custom-2 {
-  /* fallback for old browsers */
-  background: #fccb90;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-}
-
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
-  }
-}
-@media (min-width: 769px) {
-  .gradient-custom-2 {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-  }
-}
+        .pill-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 10;
+        }

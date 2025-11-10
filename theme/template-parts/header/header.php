@@ -1,21 +1,34 @@
-<?php if ( !is_front_page() ) : ?>
-<header id="header" class="border-b border-border bg-white shadow-sm">
-    <div class="flex h-16 items-center justify-between px-6">
-        <div class="flex items-center gap-3">
-          <div class="relative">
-            <div class="h-8 w-8 rounded-full bg-[#F3C11B] flex items-center justify-center ">
-              <div class="h-4 w-4 rounded-full bg-black"></div>
-            </div>
-          </div>
-          <div>
-            <h1 class="text-xl font-bold text-black"><?php the_title() ?></h1>
-            <p class="text-xs text-gray-600">Employee Dashboard</p>
-          </div>
-        </div>
+<header class="w-full bg-gradient-to-r from-[#85CEF2] via-[#F5F5F5] to-[#85CEF2] shadow-sm ">
+<div class="flex items-center justify-between py-8 px-6 relative">
 
-        <div>
-          <?php render_rocket_block('logout'); ?>
-        </div>
-    </div>
+  <!-- LOGO/GRAPHIC overlay -->
+  <img 
+    src="<?php echo get_stylesheet_directory_uri().'/assets/images/New_pack_hoz.png' ?>" 
+    alt="logo"
+    class="h-[100px] absolute z-10 top-3 left-10"
+  />
+
+  <!-- MENU -->
+ <nav class="flex gap-10 text-[18px] font-bold text-gray-700 ml-auto space-x-6 mr-10">
+  <a href="#" class="hover:text-[#2E3690]">TRANG CHỦ</a>
+
+  <a href="#" class="hover:text-[#2E3690]">
+    Duo<span class="font-normal">men</span> BỤNG YÊN RUỘT ỔN
+  </a>
+
+  <a href="#" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
+  <a href="#" class="hover:text-[#2E3690]">LIÊN HỆ</a>
+</nav>
+
+
+</div>
+
+<section class="relative w-full overflow-hidden">
+  <img 
+    src="<?php echo get_stylesheet_directory_uri().'/assets/images/Frame 1.png' ?>" 
+    class="w-full object-cover" 
+    alt="banner"
+  />
+</section>
+
 </header>
-<?php endif; ?>
