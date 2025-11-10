@@ -26,7 +26,7 @@
 <section class="relative w-full overflow-hidden">
   <img 
     src="<?php echo get_stylesheet_directory_uri().'/assets/images/Frame 1.png' ?>" 
-    class="w-full object-cover" 
+    class="w-full object-cover"  
     alt="banner"
   />
 </section>
