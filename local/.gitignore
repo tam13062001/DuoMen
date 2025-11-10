@@ -1,0 +1,12 @@
+*.iml
+.idea
+.vscode
+.DS_Store
+node_modules
+.env
+wordpress
+theme/build
+plugin/build
+child-*/build
+
+bin/*.zip

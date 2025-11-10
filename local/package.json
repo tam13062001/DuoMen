@@ -1,0 +1,33 @@
+{
+  "name": "{{ name }}",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/wordpress__block-editor": "^11.5.15",
+    "@wordpress/block-editor": "^13.2.0",
+    "@wordpress/blocks": "^13.2.0",
+    "@wordpress/components": "^28.2.0",
+    "@wordpress/element": "^6.2.0",
+    "@wordpress/scripts": "^26.19.0",
+    "dotenv": "^16.4.5",
+    "glob": "^10.4.5"
+  }
+}
