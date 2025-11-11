@@ -37,7 +37,7 @@
         <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Frame 3.png' ?>" 
              alt="" 
              class="mx-auto mb-8 ">
-        <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Vector_4.png' ?>" alt="" class="absolute top-[200px] right-[-160px]">
+        <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Vector_4.png' ?>" alt="" class="absolute top-[200px] right-[-157px]">
         <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Vector_3.png' ?>" alt="" class="absolute bottom-[300px] left-[-160px]">
         <!-- TEXT -->
         <div class="lg:w-[540px] text-center  mx-auto text-[#333] leading-[1.7] space-y-6">
@@ -101,6 +101,8 @@
             class="absolute top-[570px] right-[410px] w-[300px]">
     </div>
 
+
+
     <div class="relative w-full max-w-[1200px] mx-auto py-20">
 
         <!-- BACKGROUND VÒNG TRÒN -->
@@ -126,29 +128,30 @@
         <!-- FAQ -->
         <div class="mt-10 relative z-10 w-[850px] container mx-auto">
             <h2 class="text-center text-[32px] font-bold text-[#2E3690] mb-12 top-[-400px]">Câu hỏi thường gặp</h2>
-
-            <div class="space-y-4 text-[#333] text-[20px] mb-12 ">
-                <div class="flex justify-between border-b pb-3">
-                    <span class="font-bold">DuoMen có xuất xứ từ đâu?</span>
-                    <span>+</span>
-                </div>
-                <div class="flex justify-between border-b pb-3">
-                    <span class="font-bold">Khi nào nên sử dụng DuoMen?</span>
-                    <span>+</span>
-                </div>
-                <div class="flex justify-between border-b pb-3">
-                    <span class="font-bold">DuoMen có an toàn không?</span>
-                    <span>+</span>
-                </div>
-                <div class="flex justify-between border-b pb-3">
-                    <span class="font-bold">DuoMen nên dùng như thế nào để đạt hiệu quả tốt nhất?</span>
-                    <span>+</span>
-                </div>
-                <div class="flex justify-between border-b pb-3">
-                    <span class="font-bold">DuoMen có tương tác với các thuốc tôi đang dùng không?</span>
-                    <span>+</span>
-                </div>
-            </div>
+                <?php get_template_part('template-parts/content/frequently-asked-questions', null, array(
+                'items' => array(
+                    array(
+                        'title' => 'DuoMen có xuất xứ từ đâu?',
+                        'content' => 'faq.cloud.items.0.content',
+                    ),
+                    array(
+                        'title' => 'Khi nào nên sử dụng DuoMen?',
+                        'content' => 'faq.cloud.items.1.content',
+                    ),
+                    array(
+                        'title' => 'DuoMen có an toàn không?',
+                        'content' => 'faq.cloud.items.2.content',
+                    ),
+                    array(
+                        'title' => 'DuoMen nên dùng như thế nào để đạt hiệu quả tốt nhất?',
+                        'content' => 'faq.cloud.items.3.content',
+                    ),
+                    array(
+                        'title' => 'DuoMen có tương tác với các thuốc tôi đang dùng không?',
+                        'content' => 'faq.cloud.items.4.content',
+                    ),
+                ),
+            )); ?>
 
             <div>
                 <h2 class="text-center text-[32px] font-bold text-[#2E3690] mb-12 top-[-400px]">Tìm mua Duo<span class="font-Regular">Men</span> ở đâu</h2>

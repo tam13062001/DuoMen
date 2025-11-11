@@ -13,6 +13,7 @@
 
 body {
     margin: 0;
+    cursor: url('/theme/assets/images/image 8.png'), auto;
     @apply font-sans text-[20px]
 }
 
@@ -73,3 +74,6 @@ body {
             position: relative;
             z-index: 10;
         }
+.ant-collapse-content-box{
+    padding: 12px 0px !important;
+}
