@@ -24,7 +24,7 @@
             <div class="flex flex-col justify-center mt-[-100px]  ml-[690px]">
                 <a href="#" 
                 class="bg-[#2E3690] w-[220px] text-white px-6 py-3 rounded-full text-[14px] font-semibold shadow-lg hover:opacity-90 transition">
-                    Facebook Vũ Trụ Duo Men
+                    Facebook Vũ Trụ Duo<span class="font-normal">Men</span>
                 </a>
             </div>
 
@@ -35,7 +35,7 @@
             <div class="flex justify-center mt-[200px]">
                 <a href="#" 
                 class="bg-[#2E3690] text-white px-6 py-3 rounded-full text-[14px] font-semibold shadow-lg hover:opacity-90 transition">
-                    Facebook Vũ Trụ Duo Men
+                    Facebook Vũ Trụ Duo<span class="font-normal">Men</span>
                 </a>
             </div>
 

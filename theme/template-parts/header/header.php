@@ -5,7 +5,7 @@
       <img 
         src="<?php echo get_stylesheet_directory_uri().'/assets/images/New_pack_hoz.png' ?>" 
         alt="logo"
-        class="lg:h-[100px] h-14 absolute z-10 lg:top-3 top-2 lg:left-10 left-6"
+        class="lg:h-[100px] h-14 absolute z-10 lg:top-6 top-2 lg:left-10 left-6"
       />
 
 
@@ -43,7 +43,7 @@
             class="absolute bottom-[-12px] right-[-10px] w-[12px]">
         </div>
 
-        <a href="/" class="hover:text-[#2E3690]">Duo<span class="font-normal">men</span> BỤNG YÊN RUỘT ỔN</a>
+        <a href="/" class="hover:text-[#2E3690]">Duo<span class="font-normal">Men</span> BỤNG YÊN RUỘT ỔN</a>
         <a href="/" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
         <a href="/" class="hover:text-[#2E3690]">LIÊN HỆ</a>
       </nav>
@@ -62,7 +62,7 @@
         />
 
         <a href="/" class="hover:text-[#2E3690]">TRANG CHỦ</a>
-        <a href="/" class="hover:text-[#2E3690]">Duo<span class="font-normal">men</span> BỤNG YÊN RUỘT ỔN</a>
+        <a href="/" class="hover:text-[#2E3690]">Duo<span class="font-normal">Men</span> BỤNG YÊN RUỘT ỔN</a>
         <a href="/" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
         <a href="/" class="hover:text-[#2E3690]">LIÊN HỆ</a>
       </nav>
@@ -103,7 +103,7 @@
     />
 
     <img 
-      src="<?php echo get_stylesheet_directory_uri().'/assets/images/banner_mb.png' ?>" 
+      src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 33 (1).png' ?>" 
       class="w-full object-cover lg:hidden"  
       alt="banner"
     />

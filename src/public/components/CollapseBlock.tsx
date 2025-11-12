@@ -1,12 +1,5 @@
-import {Collapse} from "antd";
-import {BaseProps} from "../core/get-props";
-import {ArrowRightOutlined, PlusOutlined} from "@ant-design/icons";
-
-
-type CollapseBlockProps = {
-  title: string
-  content: string
-}
+import { Collapse } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 export default function CollapseBlock({ data }) {
   const { title, content } = data;
@@ -24,12 +17,19 @@ export default function CollapseBlock({ data }) {
       >
         <Collapse.Panel
           key="1"
-          header={<div className="font-bold text-gray-800 -ml-4">{title}</div>}
+          header={
+            <div
+              className="font-bold text-gray-800 -ml-4"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
+          }
         >
-          <div className="text-gray-700 leading-relaxed">{content}</div>
+          <div
+            className="text-gray-700 leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_li]:mb-1"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </Collapse.Panel>
       </Collapse>
     </div>
   );
 }
-

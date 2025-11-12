@@ -15,24 +15,38 @@
 
     <div class="container text-center lg:py-[100px] py-[60px] mx-auto relative">
         <!-- HÌNH -->
-        <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Frame 3.png' ?>" 
-             alt="" 
-             class="mx-auto mb-8 lg:block hidden">
+<div class="relative lg:block hidden mb-8">
+  <!-- Hình 2-1: xuất hiện trước -->
+  <img 
+    src="<?php echo get_stylesheet_directory_uri().'/assets/images/Layer 2 1.png' ?>" 
+    alt=""
+    class="absolute top-0 left-[14%] w-[570px] h-[430px] animate-fade-in"
+  >
+
+  <!-- Hình 2-2: ẩn hoàn toàn, chỉ hiện sau 0.5s -->
+  <img 
+    src="<?php echo get_stylesheet_directory_uri().'/assets/images/Layer 2 2.png' ?>" 
+    alt=""
+    class="absolute top-[-30px] right-[14%] w-[239px] h-[231px] opacity-0 animate-fade-in-delayed"
+  >
+</div>
+
+
 
         <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Frame 3 mb.png' ?>" 
              alt="" 
              class=" lg:mt-0 mt-[-50px] lg:hidden">
 
         <!-- TEXT -->
-        <div class="lg:w-[600px] w-full text-center  text-[#333] leading-[1.7] space-y-6 lg:mt-0 mt-[-50px] mx-auto">
+        <div class="lg:w-[600px] w-full text-center  text-[#333] leading-[1.7] space-y-6 lg:mt-[550px] mt-[-50px] mx-auto">
 
             <p class="lg:text-[18px] text-[13px] font-bold">
-                DuoMen với công nghệ Viên nang kép – cung cấp đồng thời 02 hệ Men trong cùng 1 viên: 
+                Duo<span class="font-normal">Men</span> với công nghệ Viên nang kép – cung cấp đồng thời 02 hệ Men trong cùng 1 viên: 
                 Men tiêu hóa cho Dạ dày và Men vi sinh cho Ruột.
             </p>
 
             <p class="lg:text-[18px] text-[13px] font-bold">
-                DuoMen được nghiên cứu và phát triển bởi Aora Health (Tây Ban Nha) 
+                Duo<span class="font-normal">Men</span> được nghiên cứu và phát triển bởi Aora Health (Tây Ban Nha) 
                 & được MHD Pharma phân phối độc quyền tại Việt Nam.
             </p>
         </div>
@@ -126,13 +140,18 @@
                 <div class="ripple-ring ripple-4"></div>
                 <div class="ripple-ring ripple-5"></div>
 
-                <!-- Hình viên thuốc -->
-                <div class="pill-image flex items-center justify-center absolute inset-0">
-                    <div class="w-[120px] h-[180px] sm:w-[150px] sm:h-[230px] md:w-[180px] md:h-[260px] lg:w-[220px] lg:h-[320px]">
-                        <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 8.png' ?>" 
-                            class="w-full h-full object-contain" alt="">
-                    </div>
-                </div>
+<!-- Hình viên thuốc -->
+<div class="pill-image flex items-center justify-center absolute inset-0">
+  <div
+    class="animate-pulse-pill w-[120px] h-[180px] sm:w-[150px] sm:h-[230px] md:w-[180px] md:h-[260px] lg:w-[220px] lg:h-[320px]"
+  >
+    <img
+      src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 8.png' ?>"
+      class="w-full h-full object-contain"
+      alt="viên thuốc"
+    >
+  </div>
+</div>
 
             </div>
         </div>
@@ -147,24 +166,43 @@
             <?php get_template_part('template-parts/content/frequently-asked-questions', null, array(
                 'items' => array(
                     array(
-                        'title' => 'DuoMen có xuất xứ từ đâu?',
-                        'content' => 'content',
+                    'title' => 'Duo<span class="font-normal">Men</span> nên dùng như thế nào để đạt hiệu quả tốt nhất?',
+                    'content' => '
+                        <ul>
+                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> được nghiên cứu và phát triển bởi Aora Health (Tây Ban Nha) và được MHD Pharma phân phối độc quyền tại Việt Nam. </li>
+                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> hiện đang được lưu hành tại hơn 40 quốc gia trên toàn thế giới.</li>
+                        </ul>
+                    ',
+                    ),
+
+                    array(
+                        'title' => 'Khi nào nên sử dụng Duo<span class="font-normal">Men</span>?',
+                        'content' => '                        
+                        <ul>
+                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> phù hợp cho người bị rối loạn tiêu hóa với các biểu hiện: đầy bụng, khó tiêu, tiêu chảy; người cần phục hồi hệ vi sinh đường ruột sau khi sử dụng kháng sinh hay uống rượu bia; người có sự bài tiết enzyme tiêu hóa không đầy đủ hay bị phẫu thuật đường tiêu hóa trên.  </li>
+                            <li>Không dùng cho phụ nữ mang thai, cho con bú hoặc người mẫn cảm với thành phần sản phẩm.</li>
+                        </ul>',
                     ),
                     array(
-                        'title' => 'Khi nào nên sử dụng DuoMen?',
-                        'content' => 'content',
+                        'title' => 'Duo<span class="font-normal">Men</span> có an toàn không?',
+                        'content' => '                        
+                        <ul>
+                            <li>Men tiêu hóa từ Nấm và Lợi khuẩn Lactobacillus plantarum được chứng nhận an toàn theo tiêu chuẩn GRAS của FDA. </li>
+                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> không chứa bất kì thành phần từ động vật, phù hợp cho người ăn chay (Vegan).</li>
+                        </ul>',
                     ),
                     array(
-                        'title' => 'DuoMen có an toàn không?',
-                        'content' => 'content',
+                        'title' => 'Duo<span class="font-normal">Men</span> nên dùng như thế nào để đạt hiệu quả tốt nhất?',
+                        'content' => '                    
+                         Uống 1 đến 2 viên/ngày, mỗi lần 1 viên, uống ngay đầu bữa ăn chính.
+                        <ul>
+                            <li class="ml-3">Dùng ít nhất 1–2 tuần để cải thiện triệu chứng rõ rệt.</li>
+                            <li class="ml-3">Để ổn định hệ vi sinh đường ruột và tiêu hoá bền vững, nên duy trì 1–3 tháng.</li>
+                        </ul>',
                     ),
                     array(
-                        'title' => 'DuoMen nên dùng như thế nào để đạt hiệu quả tốt nhất?',
-                        'content' => 'content',
-                    ),
-                    array(
-                        'title' => 'DuoMen có tương tác với các thuốc tôi đang dùng không?',
-                        'content' => 'content',
+                        'title' => '<span class="font-bold">Duo</span><span class="font-normal">Men</span> có tương tác với các thuốc tôi đang dùng không?',
+                        'content' => '<span class="font-bold">Duo</span><span class="font-normal">Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa Duo<span class="font-normal">Men</span> với các thuốc điều trị. Tuy nhiên, nếu như bạn đang sử dụng thuốc hoặc có tiền sử dị ứng thuốc, hãy tham khảo ý kiến chuyên gia trước khi dùng. ',
                     ),
                 ),
             )); ?>
