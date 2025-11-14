@@ -20,18 +20,50 @@ body {
 .container {
     @apply px-10 lg:px-16 4xl:px-[500px] 6xl:px-[700px]
 }
+/* Ripple responsive */
 @keyframes ripple {
-            0% {
-                width: 0;
-                height: 0;
-                opacity: 0.8;
-            }
-            100% {
-                width: 800px;
-                height: 800px;
-                opacity: 0;
-            }
-        }
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 80vw;  /* responsive theo width màn */
+    height: 80vw; /* responsive theo width màn */
+    opacity: 0;
+  }
+}
+
+/* Ngăn ripple vượt quá max size - desktop */
+@media (min-width: 768px) {
+  @keyframes ripple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.8;
+    }
+    100% {
+      width: 500px;  /* tablet */
+      height: 500px;
+      opacity: 0;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes ripple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.8;
+    }
+    100% {
+      width: 650px; /* desktop */
+      height: 650px;
+      opacity: 0;
+    }
+  }
+}
 
         .ripple-ring {
             position: absolute;
