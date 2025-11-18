@@ -13,14 +13,18 @@
 
 body {
     margin: 0;
-    cursor: url('/theme/assets/images/image 8.png'), auto;
+    cursor: url('http://localhost:8000/wp-content/uploads/2025/11/image8.png'), auto;
     @apply font-sans text-[20px]
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .container {
     @apply px-10 lg:px-16 4xl:px-[500px] 6xl:px-[700px]
 }
-/* Ripple responsive */
+/* Ripple animation không override nhiều lần */
 @keyframes ripple {
   0% {
     width: 0;
@@ -28,84 +32,117 @@ body {
     opacity: 0.8;
   }
   100% {
-    width: 80vw;  /* responsive theo width màn */
-    height: 80vw; /* responsive theo width màn */
+    width: 100%;
+    height: 100%;
     opacity: 0;
   }
 }
 
-/* Ngăn ripple vượt quá max size - desktop */
+/* Ring base */
+.ripple-ring {
+  position: absolute;
+  border: 2px solid rgba(68, 156, 239, 0.6);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple 2.2s ease-out infinite;
+}
+
+/* Delay từng vòng */
+.ripple-1 { animation-delay: 0s; }
+.ripple-2 { animation-delay: 0.6s; }
+.ripple-3 { animation-delay: 1.2s; }
+
+/* Responsive placeholder — KHÔNG override keyframes */
+.pill-container {
+  position: relative;
+  overflow: hidden;
+}
+
 @media (min-width: 768px) {
-  @keyframes ripple {
-    0% {
-      width: 0;
-      height: 0;
-      opacity: 0.8;
-    }
-    100% {
-      width: 500px;  /* tablet */
-      height: 500px;
-      opacity: 0;
-    }
-  }
+  .pill-container { width: 350px; height: 350px; }
 }
 
 @media (min-width: 1024px) {
-  @keyframes ripple {
-    0% {
-      width: 0;
-      height: 0;
-      opacity: 0.8;
-    }
-    100% {
-      width: 650px; /* desktop */
-      height: 650px;
-      opacity: 0;
-    }
+  .pill-container { width: 600px; height: 600px; }
+}
+
+.ant-collapse-content-box{
+    padding: 12px 0px !important;
+}
+
+.custom-list li {
+  padding-left: 28px;
+  position: relative;
+  list-style: none;
+}
+
+.custom-list li::marker {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-image: url('http://localhost:8000/wp-content/uploads/2025/11/image8.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+@keyframes waveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-        .ripple-ring {
-            position: absolute;
-            border: 2px solid rgba(68, 156, 239, 0.6);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: ripple 2s ease-out infinite;
-        }
 
-        .ripple-1 {
-          
-            animation-delay: 0s;
-        }
+.wave span {
+  display: inline-block;
+  opacity: 0;
+  animation: waveUp 0.5s ease forwards;
+}
 
-        .ripple-2 {
-            animation-delay: 0.6s;
-        }
+.shine-wrap {
+    position: relative;
+    overflow: hidden;
+}
 
-        .ripple-3 {
-            animation-delay: 1.2s;
-        }
-        .ripple-4 {
-            animation-delay: 1.8s;
-        }
-        .ripple-5 {
-            animation-delay: 2.4s;
-        }
+.shine-overlay {
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(75deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    animation: shine-move 2.5s ease-in-out infinite;
+}
 
-        .pill-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-        }
+/* Shine Animation */
+@keyframes shine-move {
+    0% { left: -120%; }
+    60% { left: 120%; }
+    100% { left: 120%; }
+}
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
 
-        .pill-image {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 10;
-        }
-.ant-collapse-content-box{
-    padding: 12px 0px !important;
+.flash-effect {
+  animation: flash 1.5s ease-in-out infinite;
 }

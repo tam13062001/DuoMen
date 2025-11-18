@@ -1,8 +1,32 @@
+import { useEffect, useState } from "react";
 import { Collapse } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 
 export default function CollapseBlock({ data }) {
   const { title, content } = data;
+
+  const localImage =
+    "http://localhost:8000/wp-content/uploads/2025/11/image8.png";
+
+  const fallbackImage =
+    "https://duomen.rocketdigital.solutions/wp-content/uploads/2025/11/image8.png";
+
+  const [bulletImage, setBulletImage] = useState(fallbackImage);
+
+  // 🔥 Kiểm tra link local trước – nếu tồn tại thì ưu tiên dùng
+  useEffect(() => {
+    fetch(localImage, { method: "HEAD" })
+      .then((res) => {
+        if (res.ok) {
+          setBulletImage(localImage);
+        } else {
+          setBulletImage(fallbackImage);
+        }
+      })
+      .catch(() => {
+        setBulletImage(fallbackImage);
+      });
+  }, []);
 
   return (
     <div className="w-full max-w-[850px] mx-auto">
@@ -10,7 +34,7 @@ export default function CollapseBlock({ data }) {
         expandIconPosition="end"
         ghost
         expandIcon={({ isActive }) => (
-          <div className="text-black">
+          <div className="text-black lg:mt-1 mt-1">
             <PlusOutlined rotate={isActive ? 45 : 0} />
           </div>
         )}
@@ -25,9 +49,37 @@ export default function CollapseBlock({ data }) {
           }
         >
           <div
-            className="text-gray-700 leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_li]:mb-1"
+            className="text-gray-700 leading-relaxed custom-list"
             dangerouslySetInnerHTML={{ __html: content }}
           />
+
+          {/* CSS đổi bullet thành hình */}
+          <style>{`
+            .custom-list ul {
+              list-style: none !important;
+              padding-left: 0 !important;
+              margin: 0;
+            }
+
+            .custom-list li {
+              list-style: none;
+              padding-left: 28px;
+              margin-bottom: 10px;
+              position: relative;
+            }
+
+            .custom-list li::before {
+              content: "";
+              position: absolute;
+              left: 5px;
+              top: 10px;
+              width: 16px;
+              height: 16px;
+              background-image: url('${bulletImage}');
+              background-size: contain;
+              background-repeat: no-repeat;
+            }
+          `}</style>
         </Collapse.Panel>
       </Collapse>
     </div>

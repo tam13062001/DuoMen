@@ -14,13 +14,15 @@ module.exports = {
         },
         'pulse-pill': {
           '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.08)' }, // phóng to 8%
+          '50%': { transform: 'scale(1.04)' }, // phóng to 8%
         },
+        
       },
       animation: {
         'fade-in': 'fade-in 0.5s ease-out forwards',            // Hình 2-1
         'fade-in-delayed': 'fade-in 0.8s ease-out 0.5s forwards', // Hình 2-2 (trễ 0.5s)
         'pulse-pill': 'pulse-pill 3s ease-in-out infinite',
+        'pulse-pill-header': 'pulse-pill 2s ease-in-out infinite',
       },
       colors: {
         primary: '#F3C11B',
@@ -33,6 +35,7 @@ module.exports = {
       container: {
         center: true,
         screens: {
+          ssm: '400px',
           sm: '640px',
           md: '768px',
           lg: '1024px',
@@ -44,6 +47,7 @@ module.exports = {
         }
       },
       screens: {
+        'ip':'400px',
         'ipadpro':'1024px',
         'ipadproplus':'1030px',
         'xxl':'1535px',

@@ -94,7 +94,7 @@ class RocketTheme
 
     public function register_rest_api(string $path, array $options = []): void {
         add_action('rest_api_init', function () use ($path, $options) {
-            register_rest_route('rocket/v1', $path, $options);
+            register_rest_route('duomen/v1', $path, $options);
         });
     }
 }
