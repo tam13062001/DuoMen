@@ -146,3 +146,21 @@ html {
 .flash-effect {
   animation: flash 1.5s ease-in-out infinite;
 }
+
+
+@keyframes colorPulse {
+  0% {
+    color: #FF0000; /* đen */
+  }
+  50% {
+    color: #2E368F; /* xanh */
+  }
+  100% {
+    color: #FF0000; /* quay lại đen */
+  }
+}
+
+/* class này để dùng */
+.color-change {
+  animation: colorPulse 3s infinite ease-in-out;
+}

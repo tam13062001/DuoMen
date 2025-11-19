@@ -19,6 +19,20 @@ $rocket = new RocketTheme(array(
 ));
 $rocket->load();
 
+function enqueue_swiper_assets() {
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
+
+function theme_enqueue_scripts() {
+  wp_enqueue_style('aos-css', 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css');
+  wp_enqueue_script('aos-js', 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js', array(), null, true);
+
+  // Khởi tạo AOS sau khi trang load
+  wp_add_inline_script('aos-js', 'AOS.init({ once: true, duration: 1000 });');
+}
+
 $rocket->add_admin_menu(array(
     'name' => $theme_name,
     'title' => 'Duomen Admin',

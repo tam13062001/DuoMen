@@ -33,7 +33,7 @@ export function WaveText({
           key={index}
           style={{
             display: 'inline-block',
-            animation: `waveUp ${duration}ms ease-out ${index * delay}ms both`,
+            animation: `waveUp ${duration}ms ease-out ${index * delay}ms both, colorPulse 3s infinite ease-in-out`,
           }}
           className='font-black text-[20px] lg:text-[64px] uppercase'
         >
