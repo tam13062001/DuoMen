@@ -37,7 +37,7 @@ $rocket->add_admin_menu(array(
     'name' => $theme_name,
     'title' => 'Duomen Admin',
     'slug' => 'duomen',
-    'icon_url' => get_assets_from_path('/icons/DuomenFavicon.png'),
+    'icon_url' => get_assets_from_path('/icons/DuomenFavicon1.png'),
 ));
 
 

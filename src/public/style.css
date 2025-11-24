@@ -10,6 +10,24 @@
     }
 
 }
+header.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, #bae3f8, #F5F5F5, #bae3f8);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  animation: slideDown 0.35s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 body {
     margin: 0;
@@ -37,22 +55,62 @@ html {
     opacity: 0;
   }
 }
-
-/* Ring base */
-.ripple-ring {
+.glow-bottom::after {
+  content: "";
   position: absolute;
-  border: 2px solid rgba(68, 156, 239, 0.6);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: ripple 2.2s ease-out infinite;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%; /* chỉ phủ phần dưới */
+  pointer-events: none;
+
+  background: linear-gradient(
+    to top,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.2),
+    rgba(255,255,255,0)
+  );
 }
 
-/* Delay từng vòng */
+
+/* Ring base */
+/* Base ring - dạng shape mờ */
+.ripple-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  filter: blur(2px);
+  opacity: 0;
+  animation: rippleGlow 3.5s ease-out infinite;
+}
+
+/* Delay tạo vòng liên tục */
 .ripple-1 { animation-delay: 0s; }
-.ripple-2 { animation-delay: 0.6s; }
-.ripple-3 { animation-delay: 1.2s; }
+.ripple-2 { animation-delay: 0.7s; }
+.ripple-3 { animation-delay: 1.4s; }
+.ripple-4 { animation-delay: 2.1s; }
+.ripple-5 { animation-delay: 2.8s; }
+
+/* Animation lan tỏa mềm */
+@keyframes rippleGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 0.7;
+  }
+  70% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
 
 /* Responsive placeholder — KHÔNG override keyframes */
 .pill-container {
@@ -163,4 +221,19 @@ html {
 /* class này để dùng */
 .color-change {
   animation: colorPulse 3s infinite ease-in-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.25s ease-out;
 }

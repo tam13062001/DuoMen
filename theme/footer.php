@@ -6,7 +6,7 @@
                 <a 
                     href="https://www.facebook.com/viennangkepDuo" 
                     target="_blank"
-                    class="bg-[#2D3893] w-[260px] inline-flex items-center justify-center gap-2 
+                    class="bg-[#2D3893] w-[260px] inline-flex items-center justify-center 
                         text-white px-6 py-3 rounded-full border border-white 
                         text-[14px] font-semibold shadow-lg hover:opacity-90 transition ml-[80px] 2xl:ml-[300px]"
                 >
@@ -14,7 +14,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" 
                         fill="currentColor" 
                         viewBox="0 0 24 24"
-                        class="w-5 h-5">
+                        class="w-5 h-5 mr-2">
                         <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 
                             23.403.597 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 
                             1.893-4.788 4.659-4.788 1.325 0 2.464.099 
@@ -58,19 +58,19 @@
 
         <div class=" px-6 lg:hidden grid grid-cols-1 gap-10 py-10">
             
-            <div class="flex justify-center ">
+            <div class=" mx-auto ">
                 <a 
                     href="https://www.facebook.com/viennangkepDuo" 
                     target="_blank"
-                    class="bg-[#2D3893] w-[260px] inline-flex items-center justify-center gap-2 
+                    class="bg-[#2D3893] w-[260px] inline-flex items-center 
                         text-white px-6 py-3 rounded-full border border-white 
                         text-[14px] font-semibold shadow-lg hover:opacity-90 transition "
                 >
                     <!-- Facebook Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" 
-                        fill="currentColor" 
+                        fill="currentColor"     
                         viewBox="0 0 24 24"
-                        class="w-5 h-5">
+                        class="w-5 h-5 mr-2">
                         <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 
                             23.403.597 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 
                             1.893-4.788 4.659-4.788 1.325 0 2.464.099 

@@ -1,6 +1,8 @@
 import axios from "axios";
-import {useEffect, useState} from "@wordpress/element";
-import {Table, Typography} from "antd";
+import { useEffect, useState } from "@wordpress/element";
+import { Table, Typography, Button, Space } from "antd";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 
 export default function ContactPage() {
   const [error, setError] = useState<string>()
@@ -15,7 +17,6 @@ export default function ContactPage() {
     })
       .then(response => {
         const rows = response.data.map((item: any) => ({
-          key: item.id,
           id: item.id,
           ...(item.data || {})
         }))
@@ -26,11 +27,34 @@ export default function ContactPage() {
 
   useEffect(() => { loadContact() }, [])
 
+  // ✅ EXPORT EXCEL
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(data)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Contacts")
+
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })
+    const blob = new Blob([excelBuffer], { type: "application/octet-stream" })
+
+    saveAs(blob, "contacts.xlsx")
+  }
+
   return (
     <div style={{ marginTop: 20, paddingRight: 20 }}>
-      <Typography.Title>Contacts</Typography.Title>
+<Space
+  align="center"
+  style={{ marginBottom: 16, width: "100%", }}
+>
+  <Typography.Title level={2} style={{ margin: 0 }}>
+    Contacts
+  </Typography.Title>
 
-      {error && <div style={{color: 'red'}}>{error}</div>}
+  <Button type="primary" onClick={exportToExcel}>
+    Xuất Excel
+  </Button>
+</Space>
+
+      {error && <div style={{ color: 'red' }}>{error}</div>}
 
       <Table
         dataSource={data}

@@ -1,158 +1,107 @@
-import { useEffect, useState } from '@wordpress/element'
+import { useState } from '@wordpress/element'
 import { useForm, Controller } from 'react-hook-form'
-import { Input, Button, Row, Col, Alert } from 'antd'
+import { Input, Button, Alert } from 'antd'
 import axios from 'axios'
 
 export default function ContactForm() {
-  const [propsData, setPropsData] = useState<any>(null)
-  const [showSuccess, setShowSuccess] = useState(false)
-  const [error, setError] = useState<string>()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
   const { control, handleSubmit, reset } = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-    }
+    defaultValues: { name: '', email: '', phone: '' }
   })
 
-  // 🔥 LOAD DATA-PROPS TỪ PHP
-  useEffect(() => {
-    const el = document.getElementById("contact-page-data")
-    if (el) {
-      const json = el.getAttribute("data-props")
-      if (json) {
-        setPropsData(JSON.parse(json))
-      }
-    }
-  }, [])
-
-  if (!propsData) return null // đợi PHP load
-
-  const f = propsData.fields
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState<string>()
+  const [loading, setLoading] = useState(false)
 
   const onSubmit = async (values: any) => {
-    setShowSuccess(false)
+    setSuccess(false)
     setError(undefined)
-    setIsSubmitting(true)
+    setLoading(true)
 
     try {
       await axios.post('/index.php?rest_route=/duomen/v1/save-contact', values)
-      setShowSuccess(true)
+      setSuccess(true)
       reset()
     } catch (e: any) {
       setError(e.message)
     } finally {
-      setIsSubmitting(false)
+      setLoading(false)
     }
   }
 
+  const InputField = ({ name, label, placeholder, rules = {} }: any) => (
+    <div className="flex flex-col">
+      <label className="text-sm font-medium text-gray-700 mb-1">{label}</label>
+      <Controller
+        control={control}
+        name={name}
+        rules={rules}
+        render={({ field }) => (
+          <Input {...field} placeholder={placeholder} className="contact-input" />
+        )}
+      />
+    </div>
+  )
+
   return (
-    <Row justify="start"  gutter={[40, 40]} >
+    <div className="w-full">
+      <h2 className="text-[20px] font-bold text-[#2E3690] mb-4">
+        Liên hệ ngay với chúng tôi
+      </h2>
 
-      {/* ================= FORM ================= */}
-      <Col xs={24} md={12} style={{ marginTop: 80 }}>
+      {success && <Alert message="Gửi thành công!" type="success" showIcon className="mb-3" />}
+      {error && <Alert message={error} type="error" showIcon className="mb-3" />}
 
-        {showSuccess && (
-          <Alert message="Gửi thành công!" type="success" showIcon className="mb-4" />
-        )}
+      <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
 
-        {error && (
-          <Alert message={error} type="error" showIcon className="mb-4" />
-        )}
+        <style>{`
+          .contact-input {
+            height: 44px;
+            border-radius: 10px !important;
+            font-size: 15px;
+            padding-left: 10px;
+          }
+        `}</style>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        {/* Bắt buộc */}
+        <InputField
+          name="name"
+          label="Tên của bạn"
+          placeholder="Nhập tên của bạn"
+          rules={{ required: 'Vui lòng nhập tên' }}
+        />
 
-          <style>
-            {`
-              .contact-input {
-                height: 35px;
-                border-radius: 8px !important;
-                font-size: 16px;
-                margin-bottom: 18px;
-              }
-                .contact-input::placeholder {
-                padding-left: 8px; /* ml-2 */
-                }
-            `}
-          </style>
-
-          {/* NAME */}
-          <label className="font-medium text-[16px]">{f.name_label}</label>
-          <Controller
-            control={control}
-            name="name"
-            render={({ field }) => (
-              <Input
-                {...field}
-                placeholder={f.name_placeholder}
-                className="contact-input"
-              />
-            )}
-          />
-
-          {/* EMAIL */}
-          <label className="font-medium text-[16px]">{f.email_label}</label>
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => (
-              <Input
-                {...field}
-                placeholder={f.email_placeholder}
-                className="contact-input"
-              />
-            )}
-          />
-
-          {/* PHONE */}
-          <label className="font-medium text-[16px]">{f.phone_label}</label>
-          <Controller
-            control={control}
-            name="phone"
-            render={({ field }) => (
-              <Input
-                {...field}
-                placeholder={f.phone_placeholder}
-                type="number"
-                className="contact-input"
-              />
-            )}
-          />
-
-          <Button
-            htmlType="submit"
-            loading={isSubmitting}
-            style={{
-              height: 52,
-              width: "50%",
-              borderRadius: 8,
-              background: "#2E3690",
-              color: "white",
-              fontSize: 17,
-              fontWeight: 600,
-            }}
-            
-          >
-            {isSubmitting ? "Đang gửi…" : propsData.button_text}
-          </Button>
-        </form>
-      </Col>
-
-      {/* ================= IMAGE / RIGHT SIDE ================= */}
-      <Col xs={24} md={10} >
-        <img
-          src={propsData.image}
-          alt="contact info"
-          style={{
-            width: "100%",
-            maxWidth: 480,
-            borderRadius: 12
+        {/* KHÔNG BẮT BUỘC */}
+        <InputField
+          name="email"
+          label="Email (không bắt buộc)"
+          placeholder="Nhập email nếu có"
+          rules={{
+            validate: (value: string) =>
+              !value || /^\S+@\S+\.\S+$/.test(value) || 'Email không hợp lệ'
           }}
         />
-      </Col>
 
-    </Row>
+        {/* Bắt buộc */}
+        <InputField
+          name="phone"
+          label="Số điện thoại"
+          placeholder="Nhập số điện thoại"
+          rules={{ required: 'Vui lòng nhập số điện thoại' }}
+        />
+
+        <Button
+          htmlType="submit"
+          loading={loading}
+          className="!h-[46px] !rounded-full !font-semibold"
+          style={{
+            background: "linear-gradient(135deg, #2E3690, #1067B2)",
+            color: "#fff",
+            border: "none"
+          }}
+        >
+          {loading ? "Đang gửi..." : "Gửi tin nhắn"}
+        </Button>
+      </form>
+    </div>
   )
 }
