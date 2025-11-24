@@ -35,7 +35,7 @@ export function WaveText({
             display: 'inline-block',
             animation: `waveUp ${duration}ms ease-out ${index * delay}ms both, colorPulse 3s infinite ease-in-out`,
           }}
-          className='font-black text-[20px] lg:text-[64px] uppercase'
+          className='font-black text-[20px] lg:text-[44px] xl:text-[64px] uppercase'
         >
           {char === ' ' ? '\u00A0' : char}
         </span>

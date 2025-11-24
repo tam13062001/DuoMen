@@ -24,7 +24,7 @@ export default function FloatingContact() {
   return (
     <>
       {/* BUTTON FLOAT */}
-      <div className="fixed bottom-[30%] right-0 z-50">
+      <div className="fixed bottom-[10%] right-0 z-50">
         {!open && (
           <button
             onClick={() => setOpen(true)}
@@ -37,7 +37,7 @@ export default function FloatingContact() {
 
       {/* POPUP OVERLAY */}
       {open && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40">
           
           {/* MODAL */}
           <div

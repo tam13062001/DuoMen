@@ -17,12 +17,6 @@
                                 <i class="fas fa-chevron-right"></i>
                         </span>
         </a>
-
-
-        <h1 class="lg:mt-[4px] font-bold lg:text-[20px] lg:mt-[50px] ">
-        Điền thông tin liên hệ
-        </h1>
-
         
     </div>
 

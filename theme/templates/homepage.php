@@ -16,14 +16,14 @@
 
     <div class="lg:container text-center lg:py-[100px] py-[30px] mx-auto relative">
             <!-- HÌNH -->
-        <div class="relative w-full lg:ml-[60px]">
+        <div class="relative w-full ">
 
             <!-- ẢNH DESKTOP 1 -->
             <img 
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt=""
                 class="absolute hidden lg:block 
-                    top-[10%] left-[20%] 
+                    top-[10%] xl:left-[19%] left-[11%] 
                     w-[570px] h-[430px] 
                     "
                 data-aos="fade-left"
@@ -46,7 +46,7 @@
                 alt=""
                 class="absolute
                     top-[-10px]
-                    right-[10%]  md:right-[28%] ip:right-[13%] lg:right-[1%] xl:right-[21.5%] 2xl:right-[31%]
+                    right-[10%]  md:right-[28%] ip:right-[13%] lg:right-[16.5%] xl:right-[22.5%] 2xl:right-[31%]
                     w-[123px] h-[100px] lg:w-[239px] lg:h-[231px]
                     animate-pulse-pill-header"
                 data-aos="fade-left"
@@ -58,7 +58,7 @@
         <div class="container mx-auto lg:w-[710px] w-full text-left lg:pt-[500px] pt-[220px] md:pt-[260px]  text-[#333] leading-[1.7] space-y-6  mx-auto px-4 lg:px-0 ">
 
             <p class=" lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
-                <span class="font-bold">Duo</span>Men được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma phân</span> phối độc quyền tại Việt Nam.
+                <span class="font-bold">Duo</span>Men được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma phân phối</span> độc quyền tại Việt Nam.
             </p>
 
             <p class="lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
@@ -66,39 +66,39 @@
             </p>
         </div>
     </div>
-
-    <div id="duomen" class="relative w-full lg:max-w-[1200px]  mx-auto lg:py-20 py-10 lg:block hidden">
+    <div ></div>
+    <div id="duomen" class="relative w-full lg:max-w-[1200px]   mx-auto lg:py-20 py-10 lg:block hidden">
         <!-- Hình nền lớn -->
 
         <!-- TEXT TRÁI -->
-        <div class="absolute top-[300px] left-[-10px] w-[330px] text-right text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
+        <div class="absolute xl:top-[300px] top-[240px] xl:left-[-10px] left-0 w-[280px] xl:w-[330px] text-right text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
             <div class="relative mb-[75px]">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 27.png' ?>" 
                     alt=""
-                    class="w-[120px] h-[125px]  absolute right-[-48px] top-[-30px]">
-                <a class="font-bold px-1 text-[32px] mb-2 bg-[#E02230] w-80% text-center text-white absolute left-[105px] top-[10px]">Men vi sinh</a>
+                    class="xl:w-[120px] w-[100px] lg:h-[125px] h-[105px] absolute right-[-48px] top-[-30px]">
+                <a class="font-bold px-1 text-[28px] xl:text-[32px] mb-2 bg-[#E02230] w-80% text-center text-white absolute left-[75px] top-[10px]">Men vi sinh</a>
             </div>
             <p class="text-[18px] font-bold mb-3 text-[#E02230] ">
-                Viên nang trong bổ sung Men vi sinh cho Ruột: có 5 tỷ lợi khuẩn sống và thức ăn cho lợi khuẩn
+                Viên nang trong bổ sung Men vi sinh cho Ruột: 05 tỷ lợi khuẩn sống và thức ăn cho lợi khuẩn
             </p>
             <p class="text-[17px] font-Regular text-[#E02230]">Giúp xử lý <span class="font-bold"> Tiêu chảy </span> nhờ cân bằng </br> hệ vi sinh đường ruột
             </p>
         </div>
 
         <!-- TEXT PHẢI -->
-        <div class="absolute top-[-40px] right-0 w-[330px] text-left text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
+        <div id="duomen" class="absolute xl:top-[-40px] lg:top-[-40px] xl:right-0 lg:right-0 w-[330px] text-left text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
             <div class="relative">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 28.png' ?>" 
                     alt=""
                     class="w-[42px] h-[75px]  absolute left-0 top-0">
-                <a class="font-bold px-1 text-[32px] mb-2 bg-[#2E368F] w-80% text-center text-white absolute left-[55px] top-[20px]">Men tiêu hóa</a>
+                <a class="font-bold px-1 text-[28px] xl:text-[32px] mb-2 bg-[#2E368F] w-80% text-center text-white absolute left-[55px] top-[20px]">Men tiêu hóa</a>
             </div>
             <p class="text-[18px] font-bold text-[#2E368F] mt-[85px]">
                 Viên nang ngoài bổ sung cho Dạ dày: 05 loại Men tiêu hóa từ Nấm
             </p>
             <p class="text-[17px] font-Regular text-[#2E368F] mt-3"> Giúp xử lý tình trạng <span class="font-bold"> Đầy bụng khó tiêu </span> trong vòng 15 phút
             </p>
-            <p class="text-[17px] font-Regular text-[#2E368F] "> Đồng thời, bổ sung dưỡng chất tốt cho ruột, giúp giảm áp lực tiêu hóa cho ruột
+            <p class="text-[17px] font-Regular text-[#2E368F] "> Đồng thời, tạo dưỡng chất tốt mịn, giúp giảm áp lực tiêu hóa cho ruột
             </p>
         </div>
         <div class="relative" data-aos="fade-up" data-aos-delay="100">
@@ -123,7 +123,7 @@
             </div>
             <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 25.png' ?>" 
                 alt=""
-                class="w-full  relative z-20 ">
+                class="w-full  relative z-20 mt-[50px]">
             <!-- Hình trái (Group 16) -->
             <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 16.png' ?>" 
                 alt="" 
@@ -132,12 +132,12 @@
             <!-- Hình giữa (Duo men graphic) -->
             <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 15.png' ?>" 
                 alt="" 
-                class="absolute lg:top-[62%] top-[62%]  2xl:right-[8%] right-[8%]  transform -translate-x-1/2 lg:w-[320px] w-[100px] z-30" data-aos="fade-right">
+                class="absolute lg:top-[62%] top-[62%]  2xl:right-[8%] right-[9%]  transform -translate-x-1/2 xl:w-[320px] lg:w-[280px] z-30" data-aos="fade-right">
 
             <!-- Hình text phải (image 23) -->
             <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 23.png' ?>" 
                 alt="" 
-                class="absolute lg:top-[50%] top-[45%] lg:right-[32%] right-[31%] lg:w-[384px] w-[110px] z-30">
+                class="absolute xl:top-[50%] top-[53%] right-[33%] xl:right-[31%] xl:w-[384px] w-[300px] z-30">
         </div>
 
     </div>
@@ -156,7 +156,7 @@
             </p>
             <p class="text-[12px] font-Regular text-[#2E368F] mt-3 mr-[10px]"> Giúp xử lý tình trạng <span class="font-bold"> Đầy bụng khó tiêu </span> trong vòng 15 phút
             </p>
-            <p class="text-[12px] font-Regular text-[#2E368F] mr-[10px]"> Đồng thời, bổ sung dưỡng chất tốt cho ruột, giúp giảm áp lực tiêu hóa cho ruột
+            <p class="text-[12px] font-Regular text-[#2E368F] mr-[10px]"> Đồng thời, tạo dưỡng chất tốt mịn, giúp giảm áp lực tiêu hóa cho ruột
             </p>
         </div>
         
@@ -226,7 +226,7 @@
 
     <div id="faq"class="relative w-full max-w-[1200px] mx-auto pt-10 lg:pb-20 pb-24 px-4 md:px-8 lg:mt-0 mt-[200px]">
         <!-- BACKGROUND VÒNG TRÒN -->
-        <div class="absolute lg:top-[20%] top-[-180px] lg:left-[-24%] left-[22%] inset-0 max-h-[600px] pointer-events-none ">
+        <div class="absolute lg:top-[20%] top-[-180px] md:top-[-290px] lg:left-[-24%] left-[22%] inset-0 max-h-[600px] pointer-events-none ">
             <div class="pill-container relative w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] mt-10">
 
                 <div class="ripple-ring ripple-1"></div>
@@ -325,13 +325,13 @@
 
         </div>
 
-        <div class="relative z-50 absolute top-[150px]">
+        <div class="relative z-40 absolute top-[150px]">
             <!-- HÌNH ĐẦU TIÊN (Chớp nhẹ) -->
             <img 
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt="logo"
-                class="lg:h-[260px] lg:w-[340px] absolute z-50 
-                    lg:bottom-[-50px] 2xl:left-[-5%] lg:left-[5%] lg:block hidden
+                class="lg:h-[260px] lg:w-[340px] absolute  
+                    lg:bottom-[-50px] xl:left-[-7.5%] 2xl:left-[-5%] lg:left-[5%] lg:block hidden
                     "
             />
 
@@ -339,7 +339,7 @@
             <img 
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt=""
-                class="absolute z-50  bottom-[-8%] left-[-1%] ip:left-[6%] md:left-[21%] 
+                class="absolute   bottom-[-8%] left-[-1%] ip:left-[6%] md:left-[21%] 
                     w-auto h-[212px]  lg:hidden
                     "
             >
@@ -348,75 +348,74 @@
             <img 
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 15.png' ?>" 
                 alt=""
-                class="absolute z-50  
-                    top-[-230px] ip:top-[-230px] lg:top-[-230px] 2xl:top-[-230px]
-                    left-[68%] ip:left-[68.5%] md:left-[27%] lg:left-[32%]  2xl:left-[22%]
+                class="absolute   
+                    top-[-230px] ip:top-[-230px] md:top-[-230px] lg:top-[-230px] 2xl:top-[-230px]
+                    left-[68%] ip:left-[68.5%] md:left-[56.5%] lg:left-[36.5%] xl:left-[19.5%]  2xl:left-[22%]
                     lg:w-[140px] md:w-[123px] w-[123px] lg:h-[140px] h-[120px] 
                     animate-pulse-pill-header"
             >
         </div>
 
-
     </div>
 
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
 
-    const fadeTargets = document.querySelectorAll(".fade-target");
-    const fadeDelayed = document.querySelectorAll(".fade-delayed");
-
-
-    const bounceItems = document.querySelectorAll(".fade-bounce");
-    const bounceItems1 = document.querySelectorAll(".fade-bounce-1");
-
-    function triggerAnim() {
-        if (window.scrollY > 700) {
-            fadeTargets.forEach(el => {
-                el.classList.remove("opacity-0");
-                el.classList.add("animate-slide-left");
-            });
-
-            fadeDelayed.forEach(el => {
-                el.classList.remove("opacity-0");
-                el.classList.add("animate-slide-left-delayed");
-                el.classList.add("animate-pulse-pill");
-            });
-            
-            window.removeEventListener("scroll", triggerAnim);
-        }
-    }
+            const fadeTargets = document.querySelectorAll(".fade-target");
+            const fadeDelayed = document.querySelectorAll(".fade-delayed");
 
 
-    function triggerBounce() {
+            const bounceItems = document.querySelectorAll(".fade-bounce");
+            const bounceItems1 = document.querySelectorAll(".fade-bounce-1");
 
-        if (window.scrollY > 1800) {
-            bounceItems.forEach(el => {
-                el.classList.remove("opacity-0");
-                el.classList.add("animate-bounceIn");
-            });
+            function triggerAnim() {
+                if (window.scrollY > 700) {
+                    fadeTargets.forEach(el => {
+                        el.classList.remove("opacity-0");
+                        el.classList.add("animate-slide-left");
+                    });
 
-            window.removeEventListener("scroll", triggerBounce);
-        }
-
-        if (window.scrollY > 1800) {
-            bounceItems1.forEach(el => {
-                el.classList.remove("opacity-0");
-                el.classList.add("animate-bounceIn-1");
-            });
-
-            window.removeEventListener("scroll", triggerBounce);
-        }
-    }
+                    fadeDelayed.forEach(el => {
+                        el.classList.remove("opacity-0");
+                        el.classList.add("animate-slide-left-delayed");
+                        el.classList.add("animate-pulse-pill");
+                    });
+                    
+                    window.removeEventListener("scroll", triggerAnim);
+                }
+            }
 
 
-    window.addEventListener("scroll", triggerBounce);
-    window.addEventListener("scroll", triggerAnim);
-    window.addEventListener("scroll", triggerAnimRight);
-    window.addEventListener("scroll", triggerAnimUpDown);
-});
-</script>
+            function triggerBounce() {
+
+                if (window.scrollY > 1800) {
+                    bounceItems.forEach(el => {
+                        el.classList.remove("opacity-0");
+                        el.classList.add("animate-bounceIn");
+                    });
+
+                    window.removeEventListener("scroll", triggerBounce);
+                }
+
+                if (window.scrollY > 1800) {
+                    bounceItems1.forEach(el => {
+                        el.classList.remove("opacity-0");
+                        el.classList.add("animate-bounceIn-1");
+                    });
+
+                    window.removeEventListener("scroll", triggerBounce);
+                }
+            }
+
+
+            window.addEventListener("scroll", triggerBounce);
+            window.addEventListener("scroll", triggerAnim);
+            window.addEventListener("scroll", triggerAnimRight);
+            window.addEventListener("scroll", triggerAnimUpDown);
+        });
+    </script>
 
 
 
