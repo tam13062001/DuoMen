@@ -15,7 +15,7 @@ export default function Text() {
 
                 animation: `waveUp 600ms ease-out 200ms both`,
                 }}
-                className="text-[16px] lg:text-[20px] xl:text-[40px]  lg:mt-7 mt-1 lg:ml-1 ">02 Men</span>
+                className="text-[16px] lg:text-[20px] xl:text-[40px]  lg:mt-7 mt-1 ml-1 ">02 Men</span>
         </div>
         
         <div className=" text-[#2E368F] font-bold lg:ml-4 flex">

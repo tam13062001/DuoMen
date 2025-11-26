@@ -38,7 +38,7 @@ export default function ContactForm() {
   return (
     <div className="w-full">
       <h2 className="text-[20px] font-bold text-[#2E3690] mb-4">
-        Liên hệ ngay với chúng tôi
+        Yêu cầu tư vấn
       </h2>
 
       {success && (
@@ -176,7 +176,7 @@ export default function ContactForm() {
           )}
         />
 
-        <Controller
+        {/* <Controller
           name="note"
           control={control}
           rules={{ required: 'Vui lòng nhập tin nhắn của bạn' }}
@@ -199,7 +199,7 @@ export default function ContactForm() {
               )}
             </div>
           )}
-        />
+        /> */}
 
         <Button
           htmlType="submit"
@@ -211,7 +211,7 @@ export default function ContactForm() {
             border: "none"
           }}
         >
-          {loading ? "Đang gửi..." : "Gửi tin nhắn"}
+          {loading ? "Đang gửi..." : "Gửi yêu cầu"}
         </Button>
       </form>
     </div>

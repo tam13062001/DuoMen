@@ -23,7 +23,7 @@
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt=""
                 class="absolute hidden lg:block 
-                    top-[10%] xl:left-[19%] left-[11%] 
+                    top-[10%] 2xl:left-[24%] xl:left-[19%] left-[10%] 
                     w-[570px] h-[430px] 
                     "
                 data-aos="fade-left"
@@ -46,7 +46,7 @@
                 alt=""
                 class="absolute
                     top-[-10px]
-                    right-[10%]  md:right-[28%] ip:right-[13%] lg:right-[16.5%] xl:right-[22.5%] 2xl:right-[31%]
+                    right-[10%]  md:right-[28%] ip:right-[13%] lg:right-[16.5%] xl:right-[22.5%] 2xl:right-[27.2%]
                     w-[123px] h-[100px] lg:w-[239px] lg:h-[231px]
                     animate-pulse-pill-header"
                 data-aos="fade-left"
@@ -58,21 +58,21 @@
         <div class="container mx-auto lg:w-[710px] w-full text-left lg:pt-[500px] pt-[220px] md:pt-[260px]  text-[#333] leading-[1.7] space-y-6  mx-auto px-4 lg:px-0 ">
 
             <p class=" lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
-                <span class="font-bold">Duo</span>Men được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma phân phối</span> độc quyền tại Việt Nam.
+                <span class="color-change"><span class="font-bold">Duo</span>Men</span> được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma <br class="block lg:hidden"> phân phối</span> độc quyền tại Việt Nam.
             </p>
 
             <p class="lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
-                <span class="font-bold">Duo</span>Men với công nghệ<span class="font-bold"> Viên nang kép</span> - cung cấp đồng thời 02 hệ Men trong cùng 1 viên: Men tiêu hóa cho Dạ dày và Men vi sinh cho Ruột.
+                <span class="color-change"><span class="font-bold">Duo</span>Men</span> với công nghệ<span class="font-bold"> Viên nang kép</span> - cung cấp đồng thời 02 hệ Men trong cùng 1 viên: Men tiêu hóa cho Dạ dày và Men vi sinh cho Ruột.
             </p>
         </div>
     </div>
-    <div ></div>
-    <div id="duomen" class="relative w-full lg:max-w-[1200px]   mx-auto lg:py-20 py-10 lg:block hidden">
+
+    <div id="duomen" class="relative w-full lg:max-w-[1200px]   mx-auto lg:pt-20 pt-10 lg:block hidden">
         <!-- Hình nền lớn -->
 
         <!-- TEXT TRÁI -->
-        <div class="absolute xl:top-[300px] top-[240px] xl:left-[-10px] left-0 w-[280px] xl:w-[330px] text-right text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
-            <div class="relative mb-[75px]">
+        <div  class="absolute xl:top-[300px] top-[240px] xl:left-[-10px] left-0 w-[280px] xl:w-[330px] text-right text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
+            <div  class="relative mb-[75px]">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 27.png' ?>" 
                     alt=""
                     class="xl:w-[120px] w-[100px] lg:h-[125px] h-[105px] absolute right-[-48px] top-[-30px]">
@@ -86,11 +86,11 @@
         </div>
 
         <!-- TEXT PHẢI -->
-        <div id="duomen" class="absolute xl:top-[-40px] lg:top-[-40px] xl:right-0 lg:right-0 w-[330px] text-left text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
+        <div id="men-tieu-hoa"  class="absolute xl:top-[-40px] lg:top-[-40px] xl:right-0 lg:right-0 w-[330px] text-left text-[#333] leading-[1.6] lg:block hidden "data-aos="fade-down">
             <div class="relative">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 28.png' ?>" 
                     alt=""
-                    class="w-[42px] h-[75px]  absolute left-0 top-0">
+                    class="w-[52px] h-[75px]  absolute left-[-5px] top-0">
                 <a class="font-bold px-1 text-[28px] xl:text-[32px] mb-2 bg-[#2E368F] w-80% text-center text-white absolute left-[55px] top-[20px]">Men tiêu hóa</a>
             </div>
             <p class="text-[18px] font-bold text-[#2E368F] mt-[85px]">
@@ -101,7 +101,7 @@
             <p class="text-[17px] font-Regular text-[#2E368F] "> Đồng thời, tạo dưỡng chất tốt mịn, giúp giảm áp lực tiêu hóa cho ruột
             </p>
         </div>
-        <div class="relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative " data-aos="fade-up" data-aos-delay="100">
                         <!-- KHUNG PILL + RIPPLE -->
             <div class="absolute xl:top-[4%] top-[1.4%] xl:left-[62.3%] left-[59.9%] z-10">
                 <!-- KHUNG CẮT VÒNG TRÒN -->
@@ -121,9 +121,10 @@
                     -->
                 </div>
             </div>
+            
             <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 25.png' ?>" 
                 alt=""
-                class="w-full  relative z-20 mt-[50px]">
+                class="w-full  relative z-20 mt-[50px] ">
             <!-- Hình trái (Group 16) -->
             <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group 16.png' ?>" 
                 alt="" 
@@ -141,10 +142,11 @@
         </div>
 
     </div>
+<div class="border-b-2 border-white hidden lg:block" data-aos="fade-left"></div>
 
     <div id="duomen_mb" class="relative  mx-auto lg:py-20 py-10 lg:hidden">
 
-        <div class="absolute top-[10px] right-0 w-[230px] text-right text-[#333] leading-[1.6] "data-aos="fade-down">
+        <div id="men-tieu-hoa_mb" class="absolute top-[10px] right-0 w-[230px] text-right text-[#333] leading-[1.6] "data-aos="fade-down">
             <div class="relative">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 28.png' ?>" 
                     alt=""
@@ -224,7 +226,7 @@
 
     </div>
 
-    <div id="faq"class="relative w-full max-w-[1200px] mx-auto pt-10 lg:pb-20 pb-24 px-4 md:px-8 lg:mt-0 mt-[200px]">
+    <div id="faq"class="relative w-full max-w-[1200px] mx-auto pt-20 lg:pb-20 pb-24 px-4 md:px-8 lg:mt-0 mt-[200px]">
         <!-- BACKGROUND VÒNG TRÒN -->
         <div class="absolute lg:top-[20%] top-[-180px] md:top-[-290px] lg:left-[-24%] left-[22%] inset-0 max-h-[600px] pointer-events-none ">
             <div class="pill-container relative w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] mt-10">
@@ -270,32 +272,32 @@
                 
                 'items' => array(
                     array(
-                    'title' => 'Duo<span class="font-normal">Men</span> có xuất xứ từ đâu?',
+                    'title' => '<span class="color-change">Duo<span class="font-normal">Men</span></span> có xuất xứ từ đâu?',
                     'content' => '
                         <ul>
-                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> được nghiên cứu và phát triển bởi Aora Health (Tây Ban Nha) và được MHD Pharma phân phối độc quyền tại Việt Nam.</li>
-                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> hiện đang được lưu hành tại hơn 40 quốc gia trên toàn thế giới. </li>
+                            <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> được nghiên cứu và phát triển bởi Aora Health (Tây Ban Nha) và được MHD Pharma phân phối độc quyền tại Việt Nam.</li>
+                            <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> hiện đang được lưu hành tại hơn 40 quốc gia trên toàn thế giới. </li>
                         </ul>',
                     ),
 
                     array(
-                        'title' => 'Khi nào nên sử dụng Duo<span class="font-normal">Men</span>?',
+                        'title' => 'Khi nào nên sử dụng <span class="color-change">Duo<span class="font-normal">Men</span></span>?',
                         'content' => '                        
                         <ul>
-                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> phù hợp cho người bị rối loạn tiêu hóa với các biểu hiện: đầy bụng, khó tiêu, tiêu chảy; người cần phục hồi hệ vi sinh đường ruột sau khi sử dụng kháng sinh hay uống rượu bia; người có sự bài tiết enzyme tiêu hóa không đầy đủ hay bị phẫu thuật đường tiêu hóa trên.  </li>
+                            <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> phù hợp cho người bị rối loạn tiêu hóa với các biểu hiện: đầy bụng, khó tiêu, tiêu chảy; người cần phục hồi hệ vi sinh đường ruột sau khi sử dụng kháng sinh hay uống rượu bia; người có sự bài tiết enzyme tiêu hóa không đầy đủ hay bị phẫu thuật đường tiêu hóa trên.  </li>
                             <li>Không dùng cho phụ nữ mang thai, cho con bú hoặc người mẫn cảm với thành phần sản phẩm.</li>
                         </ul>',
                     ),
                     array(
-                        'title' => 'Duo<span class="font-normal">Men</span> có an toàn không?',
+                        'title' => '<span class="color-change">Duo<span class="font-normal">Men</span></span> có an toàn không?',
                         'content' => '                        
                         <ul>
                             <li>Men tiêu hóa từ Nấm và Lợi khuẩn <span class="italic">Lactobacillus plantarum</span> được chứng nhận an toàn theo tiêu chuẩn GRAS của FDA. </li>
-                            <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> không chứa bất kì thành phần từ động vật, phù hợp cho người ăn chay (Vegan).</li>
+                            <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> không chứa bất kì thành phần từ động vật, phù hợp cho người ăn chay (Vegan).</li>
                         </ul>',
                     ),
                     array(
-                        'title' => 'Duo<span class="font-normal">Men</span> nên dùng như thế nào để đạt hiệu quả tốt nhất?',
+                        'title' => '<span class="color-change">Duo<span class="font-normal">Men</span></span> nên dùng như thế nào để đạt hiệu quả tốt nhất?',
                         'content' => '                    
                          Uống 1 đến 2 viên/ngày, mỗi lần 1 viên, uống ngay đầu bữa ăn chính.
                         <ul>
@@ -304,11 +306,11 @@
                         </ul>',
                     ),
                     array(
-                        'title' => '<span class="font-bold">Duo</span><span class="font-normal">Men</span> có tương tác với các thuốc tôi đang dùng không?',
+                        'title' => '<span class="color-change">Duo<span class="font-normal">Men</span></span> có tương tác với các thuốc tôi đang dùng không?',
                         'content' => '
                             <ul>
                                 
-                                <li><span class="font-bold">Duo</span><span class="font-normal">Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa Duo<span class="font-normal">Men</span> với các thuốc điều trị. Tuy nhiên, nếu như bạn đang sử dụng thuốc hoặc có tiền sử dị ứng thuốc, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
+                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change">Duo<span class="font-normal">Men</span></span> với các thuốc điều trị. Tuy nhiên, nếu như bạn đang sử dụng thuốc hoặc có tiền sử dị ứng thuốc, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
                             </ul>',
                     ),
                 ),
@@ -316,7 +318,7 @@
 
             <div class="mt-10 mb-[100px] text-center" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="text-[20px] sm:text-[30px] md:text-[32px] font-bold text-[#2E3690] mb-6">
-                    Tìm mua Duo<span class="font-normal">Men</span> ở đâu
+                    Tìm mua <span class="color-change">Duo<span class="font-normal">Men</span></span> ở đâu
                 </h2>
                 <p class="font-bold text-[14px] md:text-[20px] container">
                     Sản phẩm đã có mặt tại các Bệnh viện và Nhà thuốc uy tín trên toàn quốc

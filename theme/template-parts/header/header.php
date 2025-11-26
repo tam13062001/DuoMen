@@ -41,8 +41,8 @@
           class="absolute bottom-[-12px] right-[-10px] w-[12px]">
       </div>
 
-      <a href="#duomen" class="hover:text-[#2E3690]">Duo<span class="font-normal">Men</span> BỤNG YÊN RUỘT ỔN</a>
-      <a href="#faq" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
+      <a href="<?php echo site_url('/'); ?>#men-tieu-hoa" class="hover:text-[#2E3690]">Duo<span class="font-normal">Men</span> BỤNG YÊN RUỘT ỔN</a>
+      <a href="<?php echo site_url('/'); ?>#faq" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
       <a href="/contact" class="hover:text-[#2E3690]">LIÊN HỆ</a>
     </nav>
 
@@ -69,61 +69,86 @@
         />
 
         <a href="/" class="hover:text-[#2E3690]">TRANG CHỦ</a>
-        <a href="#duomen_mb" class="hover:text-[#2E3690]">Duo<span class="font-normal">Men</span> BỤNG YÊN RUỘT ỔN</a>
-        <a href="#faq" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
+        <a href="<?php echo site_url('/'); ?>#men-tieu-hoa_mb" class="hover:text-[#2E3690]">Duo<span class="font-normal">Men</span> BỤNG YÊN RUỘT ỔN</a>
+        <a href="<?php echo site_url('/'); ?>#faq" class="hover:text-[#2E3690]">CÂU HỎI THƯỜNG GẶP</a>
         <a href="/contact" class="hover:text-[#2E3690]">LIÊN HỆ</a>
       </nav>
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const closeBtn = document.getElementById("closeMenu");
-    const header = document.getElementById("mainHeader");
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeBtn = document.getElementById("closeMenu");
+        const header = document.getElementById("mainHeader");
 
-    function openMenu() {
-      mobileMenu.classList.remove("translate-x-full");
-      mobileMenu.classList.add("translate-x-0");
-      document.body.classList.add("overflow-hidden");
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.add("translate-x-full");
-      mobileMenu.classList.remove("translate-x-0");
-      document.body.classList.remove("overflow-hidden");
-    }
-
-    if(menuToggle && mobileMenu){
-      menuToggle.addEventListener("click", function () {
-        const isOpen = mobileMenu.classList.contains("translate-x-0");
-        isOpen ? closeMenu() : openMenu();
-      });
-
-      if (closeBtn) {
-        closeBtn.addEventListener("click", closeMenu);
-      }
-
-      document.querySelectorAll("#mobileMenu a").forEach(link => {
-        link.addEventListener("click", closeMenu);
-      });
-    }
-
-    // Sticky header
-    if(header){
-      const stickyPoint = header.offsetTop + 120;
-      window.addEventListener("scroll", function () {
-        if (window.pageYOffset > stickyPoint) {
-          header.classList.add("is-sticky");
-        } else {
-          header.classList.remove("is-sticky");
+        function openMenu() {
+          mobileMenu.classList.remove("translate-x-full");
+          mobileMenu.classList.add("translate-x-0");
+          document.body.classList.add("overflow-hidden");
         }
-      });
-    }
 
-  });
-</script>
+        function closeMenu() {
+          mobileMenu.classList.add("translate-x-full");
+          mobileMenu.classList.remove("translate-x-0");
+          document.body.classList.remove("overflow-hidden");
+        }
+
+        if(menuToggle && mobileMenu){
+          menuToggle.addEventListener("click", function () {
+            const isOpen = mobileMenu.classList.contains("translate-x-0");
+            isOpen ? closeMenu() : openMenu();
+          });
+
+          if (closeBtn) {
+            closeBtn.addEventListener("click", closeMenu);
+          }
+
+          document.querySelectorAll("#mobileMenu a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+          });
+        }
+
+        // Sticky header
+        if(header){
+          const stickyPoint = header.offsetTop + 120;
+          window.addEventListener("scroll", function () {
+            if (window.pageYOffset > stickyPoint) {
+              header.classList.add("is-sticky");
+            } else {
+              header.classList.remove("is-sticky");
+            }
+          });
+        }
+
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+
+        const header = document.getElementById("mainHeader");
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener("click", function(e) {
+            const targetId = this.getAttribute("href");
+            const targetEl = document.querySelector(targetId);
+
+            if (targetEl) {
+              e.preventDefault();
+
+              const headerHeight = header ? header.offsetHeight : 0;
+              const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+
+              window.scrollTo({
+                top: elementPosition - headerHeight - 20,
+                behavior: "smooth"
+              });
+            }
+          });
+        });
+
+      });
+    </script>
 
   </div>
 
@@ -142,7 +167,7 @@
             />
                   <img 
                       src="<?php echo get_stylesheet_directory_uri().'/assets/images/bio.png' ?>" 
-                      class="absolute z-20 xl:left-[49%] left-[50%] -translate-x-1/2 top-[15.6%] w-[112px] h-[25px] animate-pulse-pill-header "
+                      class="absolute z-20 xl:left-[49%] left-[50%] -translate-x-1/2 top-[16.6%] w-[112px] h-[25px] animate-pulse-pill-header "
                       alt="hop-duo"
                     />
                   <p class="w-[200px] absolute z-20 xl:left-[52.5%] 2xl:left-[51.5%] left-[55.5%] -translate-x-1/2 top-[-4%] xl:top-[2%] 2xl:top-[4%] italic text-[84px] font-black animate-pulse-pill-header color-change" >Duo</p>
@@ -229,8 +254,8 @@
 
                       <!-- ⭐ NỘI DUNG ẨN -->
                     <div id="moreContent" class="hidden text-[10px] leading-[14px] pr-3 pb-4"> 
-                      <p class="font-normal mt-2"> HƯỚNG DẪN SỬ DỤNG: Uống 1 đến 2 viên/ngày, mỗi lần 1 viên và uống vào đầu bữa ăn chính. CHÚ Ý: Để xa tầm tay trẻ em. Đọc kỹ hướng dẫn trước khi dùng. Không dùng cho phụ nữ có thai và cho con bú. Không dùng cho người mẫn cảm với bất kỳ thành phần nào của sản phẩm. THỰC PHẨM NÀY KHÔNG PHẢI LÀ THUỐC VÀ KHÔNG CÓ TÁC DỤNG THAY THẾ THUỐC CHỮA BỆNH. HƯỚNG DẪN BẢO QUẢN: Bảo quản ở nơi khô ráo, thoáng mát. NSX & HSD: Xem trên bao bì sản phẩm. QUY CÁCH ĐÓNG GÓI: 20 viên/ hộp (2 vỉ x 10 viên). Số giấy tiếp nhận đăng ký bản công bố sản phẩm: 8071/2019/ĐKSP. Số giấy xác nhận nội dung quảng cáo: Số 497/2025/XNQC-ATTP.</p>  
-                      <p class="text-[11px] font-regular mt-1">THÀNH PHẦN CHÍNH: Trong viên nang: Vi sinh vật có lợi synbiotic (lactobacillus plantarum 5x109, fos: 140 mg), enzym (amylase 21,5 mg, glucoamylase
+                      <p class="font-normal mt-2"> HƯỚNG DẪN SỬ DỤNG: Uống 1 đến 2 viên/ngày, mỗi lần 1 viên và uống vào đầu bữa ăn chính. CHÚ Ý: Để xa tầm tay trẻ em. Đọc kỹ hướng dẫn trước khi dùng. Không dùng cho phụ nữ có thai và cho con bú. Không dùng cho người mẫn cảm với bất kỳ thành phần nào của sản phẩm. THỰC PHẨM NÀY KHÔNG PHẢI LÀ THUỐC VÀ KHÔNG CÓ TÁC DỤNG THAY THẾ THUỐC CHỮA BỆNH. HƯỚNG DẪN BẢO QUẢN: Bảo quản ở nơi khô ráo, thoáng mát. NSX & HSD: Xem trên bao bì sản phẩm. QUY CÁCH ĐÓNG GÓI: 20 viên/ hộp (2 vỉ x 10 viên).</p>  
+                      <p class="text-[11px] font-regular mt-1">THÀNH PHẦN CHÍNH: Trong viên nang: Vi sinh vật có lợi synbiotic (lactobacillus plantarum 5x10<sup>9</sup>, fos: 140 mg), enzym (amylase 21,5 mg, glucoamylase
                       13,8 mg, lipase 13,3 mg, protease 3.0 7,5 mg, protease 4.5 3,9 mg), chất chống đông vón: magnesium stearate, dầu hướng dương.</p>
                       <p class="text-[11px] font-regular  mt-1">CÔNG DỤNG: Hỗ trợ bổ sung lợi khuẩn và enzyme tiêu hóa cho cơ thể. Hỗ trợ tăng cường tiêu hóa, hỗ trợ giảm chứng đầy bụng khó tiêu do thiếu hụt
                       enzyme chuyển hóa thức ăn. Hỗ trợ giảm rối loạn tiêu hóa do loạn khuẩn đường ruột.</p>
