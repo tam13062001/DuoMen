@@ -254,3 +254,14 @@ body.overflow-hidden {
 .animate-scale-in {
   animation: scaleIn 0.25s ease-out;
 }
+
+.font-duo {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 900; /* hoặc 900 nếu bạn muốn cực đậm */
+
+}
+
+.font-duo .first{
+    /* -webkit-text-stroke: 2px #000; */
+}

@@ -98,8 +98,8 @@
                     </p>
 
                     <p class=" mt-2 opacity-90 ">
-                        Bản Quyền © 2025 MHDPharma
-                        <a href="/privacy" class=" ml-2"> Chính sách bảo mật</a>
+                        Bản Quyền © 2025 MHDPharma <br>
+                        <a href="/privacy" class=""> Chính sách bảo mật</a>
                         <a href="/term" class=" ml-2"> Điều khoản sử dụng</a>
                     </p>
                 </div>

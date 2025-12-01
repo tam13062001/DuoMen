@@ -128,10 +128,15 @@
 
         const header = document.getElementById("mainHeader");
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href*="#"]').forEach(anchor => {
           anchor.addEventListener("click", function(e) {
-            const targetId = this.getAttribute("href");
-            const targetEl = document.querySelector(targetId);
+
+            const url = new URL(this.href);
+            const hash = url.hash;
+
+            if (!hash) return;
+
+            const targetEl = document.querySelector(hash);
 
             if (targetEl) {
               e.preventDefault();
@@ -140,9 +145,19 @@
               const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
 
               window.scrollTo({
-                top: elementPosition - headerHeight - 20,
+                top: elementPosition - headerHeight - 30,
                 behavior: "smooth"
               });
+
+              // FIX cho mobile menu
+              if (window.innerWidth < 1024) {
+                const mobileMenu = document.getElementById("mobileMenu");
+                if (mobileMenu) {
+                  mobileMenu.classList.add("translate-x-full");
+                  mobileMenu.classList.remove("translate-x-0");
+                  document.body.classList.remove("overflow-hidden");
+                }
+              }
             }
           });
         });
@@ -167,10 +182,15 @@
             />
                   <img 
                       src="<?php echo get_stylesheet_directory_uri().'/assets/images/bio.png' ?>" 
-                      class="absolute z-20 xl:left-[49%] left-[50%] -translate-x-1/2 top-[16.6%] w-[112px] h-[25px] animate-pulse-pill-header "
+                      class="absolute z-20 xl:left-[49%] left-[50%] 4xl:left-[48.5%] 6xl:left-[48%] -translate-x-1/2 top-[16.6%] 2xl:top-[14.8%] w-[112px] h-[25px] animate-pulse-pill-header "
                       alt="hop-duo"
                     />
-                  <p class="w-[200px] absolute z-20 xl:left-[52.5%] 2xl:left-[51.5%] left-[55.5%] -translate-x-1/2 top-[-4%] xl:top-[2%] 2xl:top-[4%] italic text-[84px] font-black animate-pulse-pill-header color-change" >Duo</p>
+                  <p class="w-[200px] absolute z-20 xl:left-[53.5%] 2xl:left-[51.8%] left-[56.5%]  6xl:left-[41.8%] 4xl:left-[50.2%]  6xl:left-[49.2%] 
+                  -translate-x-1/2 top-[-4%] xl:top-[1.8%] 2xl:top-[3.8%] 4xl:top-[6.8%] 6xl:top-[8.8%]
+                  text-[84px] animate-pulse-pill-header color-change font-['Montserrat'] italic font-black">
+                    Duo
+                  </p>
+
                   <img 
                     src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo.png' ?>" 
                     class="absolute z-20 left-[46.3%] -translate-x-1/2 top-[5.6%] xl:top-[7.6%] 2xl:top-[7.6%] w-[175px] h-[65px] animate-pulse-pill-header hidden"
@@ -194,18 +214,16 @@
                 />
 
                 <!-- ẢNH HỘP DUO ĐÈ LÊN TRÊN CÙNG -->
-
-              
-
+           
                 <img 
                     src="<?php echo get_stylesheet_directory_uri().'/assets/images/Group.png' ?>" 
-                    class="absolute z-20 left-[49%] md:left-[47%] -translate-x-1/2 top-[40px] md:top-[74px] w-[50px] h-[11px] animate-pulse-pill-header"
+                    class="absolute z-20 ip:left-[50%] left-[49%] md:left-[47%] -translate-x-1/2 top-[42px] md:top-[74px] w-[50px] h-[11px] animate-pulse-pill-header"
                     alt="hop-duo"
                   />
-                <p class="absolute z-20 left-[53.8%] md:left-[50.1%] -translate-x-1/2 top-[-2px] md:top-[30px]
-                  italic text-[34px] font-black leading-[1.3] pt-[2px] w-[72px]
+                <p class="absolute z-20 left-[55.2%] ip:left-[54%] md:left-[50.1%] -translate-x-1/2 ip:top-[1px] top-[1px]  md:top-[30px]
+                  italic ip:text-[34px] text-[30px]  font-['Montserrat'] italic font-black leading-[1.3] pt-[2px] w-[72px]
                   animate-pulse-pill-header color-change">
-                    Duo
+                   Duo
                   </p>
 
 
@@ -222,7 +240,7 @@
                     <div class="absolute z-30 ml-[110px] -translate-x-1/2 ip:top-[-120px] top-[-100px]">
                       <img 
                       src="<?php echo get_stylesheet_directory_uri().'/assets/images/hop DUO 2 mat OLD_it nghien 1.png' ?>" 
-                      class=" ip:w-[250px] w-[220px] ip:h-[191px] h-[161px]"
+                      class=" ip:w-[200px] w-[200px] ip:h-[161px] h-[141px]"
                       alt="hop-duo"
                     />
                     </div>

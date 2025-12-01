@@ -14,7 +14,7 @@
     </div>
 
 
-    <div class="lg:container text-center lg:py-[100px] py-[30px] mx-auto relative">
+    <div class="container text-center lg:py-[100px] py-[30px] mx-auto relative ">
             <!-- HÌNH -->
         <div class="relative w-full ">
 
@@ -23,7 +23,7 @@
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt=""
                 class="absolute hidden lg:block 
-                    top-[10%] 2xl:left-[24%] xl:left-[19%] left-[10%] 
+                    top-[10%] 2xl:left-[21.5%] xl:left-[16%] left-[5%]  6xl:left-[33%] 4xl:left-[23.5%]
                     w-[570px] h-[430px] 
                     "
                 data-aos="fade-left"
@@ -34,7 +34,7 @@
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt=""
                 class="absolute lg:hidden 
-                    top-[12%] left-[6%] ip:left-[9%] md:left-[22%] lg:left-[20%] -translate-x-1/2
+                    top-[12%] left-0 ip:left-0 md:left-[22%] lg:left-[20%] -translate-x-1/2
                     w-[230px] h-auto md:w-[300px]
                     "
                 data-aos="fade-left"
@@ -46,7 +46,7 @@
                 alt=""
                 class="absolute
                     top-[-10px]
-                    right-[10%]  md:right-[28%] ip:right-[13%] lg:right-[16.5%] xl:right-[22.5%] 2xl:right-[27.2%]
+                    right-[-20px] md:right-[20%] ip:right-[-10px] lg:right-[10.5%] xl:right-[18.5%] 2xl:right-[24.6%] 6xl:right-[36.2%] 4xl:right-[28.2%]
                     w-[123px] h-[100px] lg:w-[239px] lg:h-[231px]
                     animate-pulse-pill-header"
                 data-aos="fade-left"
@@ -55,10 +55,10 @@
 
     
         <!-- TEXT -->
-        <div class="container mx-auto lg:w-[710px] w-full text-left lg:pt-[500px] pt-[220px] md:pt-[260px]  text-[#333] leading-[1.7] space-y-6  mx-auto px-4 lg:px-0 ">
+        <div class="mx-auto lg:w-[710px] w-full text-left lg:pt-[500px] pt-[220px] md:pt-[260px]  text-[#333] leading-[1.7] space-y-6  mx-auto px-4 lg:px-0 ">
 
             <p class=" lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
-                <span class="color-change"><span class="font-bold">Duo</span>Men</span> được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma <br class="block lg:hidden"> phân phối</span> độc quyền tại Việt Nam.
+                <span class="color-change"><span class="font-bold">Duo</span>Men</span> được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma <br class="ip:block hidden lg:hidden "> phân phối</span> độc quyền tại Việt Nam.
             </p>
 
             <p class="lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
@@ -76,7 +76,7 @@
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 27.png' ?>" 
                     alt=""
                     class="xl:w-[120px] w-[100px] lg:h-[125px] h-[105px] absolute right-[-48px] top-[-30px]">
-                <a class="font-bold px-1 text-[28px] xl:text-[32px] mb-2 bg-[#E02230] w-80% text-center text-white absolute left-[75px] top-[10px]">Men vi sinh</a>
+                <a class="font-bold px-1 text-[28px] xl:text-[32px] mb-2 bg-[#E02230] w-80% text-center text-white absolute left-[100px] top-[10px]">Men vi sinh</a>
             </div>
             <p class="text-[18px] font-bold mb-3 text-[#E02230] ">
                 Viên nang trong bổ sung Men vi sinh cho Ruột: 05 tỷ lợi khuẩn sống và thức ăn cho lợi khuẩn
@@ -142,7 +142,7 @@
         </div>
 
     </div>
-<div class="border-b-2 border-white hidden lg:block" data-aos="fade-left"></div>
+    <div class="border-b-2 border-white hidden lg:block" data-aos="fade-left"></div>
 
     <div id="duomen_mb" class="relative  mx-auto lg:py-20 py-10 lg:hidden">
 
@@ -150,7 +150,7 @@
             <div class="relative">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/image 28.png' ?>" 
                     alt=""
-                    class="w-[36px] h-[56px]  absolute left-[45px] top-[5px]">
+                    class="w-[39px] h-[56px]  absolute left-[45px] top-[5px]">
                 <a class="font-bold px-1 text-[20px] mb-2 bg-[#2E368F] w-80% text-center text-white absolute right-[10px] top-[20px]">Men tiêu hóa</a>
             </div>
             <p class="text-[12px] font-bold text-[#2E368F] mt-[69px] mr-[10px]">
@@ -310,7 +310,7 @@
                         'content' => '
                             <ul>
                                 
-                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change">Duo<span class="font-normal">Men</span></span> với các thuốc điều trị. Tuy nhiên, nếu như bạn đang sử dụng thuốc hoặc có tiền sử dị ứng thuốc, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
+                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change font-bold">Duo<span class="font-normal">Men</span></span> với các thuốc điều trị. Tuy nhiên, nếu như bạn đang sử dụng thuốc hoặc có tiền sử dị ứng thuốc, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
                             </ul>',
                     ),
                 ),
@@ -320,7 +320,7 @@
                 <h2 class="text-[20px] sm:text-[30px] md:text-[32px] font-bold text-[#2E3690] mb-6">
                     Tìm mua <span class="color-change">Duo<span class="font-normal">Men</span></span> ở đâu
                 </h2>
-                <p class="font-bold text-[14px] md:text-[20px] container">
+                <p class="font-bold text-[14px] md:text-[20px] ">
                     Sản phẩm đã có mặt tại các Bệnh viện và Nhà thuốc uy tín trên toàn quốc
                 </p>
             </div>

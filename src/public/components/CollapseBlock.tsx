@@ -11,20 +11,23 @@ export default function CollapseBlock({ data }) {
   const fallbackImage =
     "https://duomen.rocketdigital.solutions/wp-content/uploads/2025/11/image8.png";
 
-  const [bulletImage, setBulletImage] = useState(fallbackImage);
+  const fallbackImage2 =
+    "https://duomen.vn/wp-content/uploads/2025/11/image8-1.png";
+
+  const [bulletImage, setBulletImage] = useState(fallbackImage2);
 
   // 🔥 Kiểm tra link local trước – nếu tồn tại thì ưu tiên dùng
   useEffect(() => {
-    fetch(localImage, { method: "HEAD" })
+    fetch(fallbackImage, { method: "HEAD" })
       .then((res) => {
         if (res.ok) {
-          setBulletImage(localImage);
-        } else {
           setBulletImage(fallbackImage);
+        } else {
+          setBulletImage(fallbackImage2);
         }
       })
       .catch(() => {
-        setBulletImage(fallbackImage);
+        setBulletImage(fallbackImage2);
       });
   }, []);
 
