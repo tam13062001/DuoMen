@@ -77,27 +77,127 @@ function doumen_list_contact() {
 
 
 function doumen_save_contact(WP_REST_Request $request) {
-    $data = $request->get_json_params();
 
-    if (empty($data)) {
-        return new WP_Error('empty_data', 'No data received', array('status' => 400));
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+    $body = $request->get_json_params();
+    if (empty($body)) {
+        return new WP_REST_Response([
+            'message' => 'No data received'
+        ], 400);
     }
 
-    // Lưu vào custom post type doumen_contact
-    $post_id = wp_insert_post([
-        'post_type'   => 'doumen_contact',
-        'post_title'  => $data['name'] ?? 'New contact',
+    // =========================
+    // SANITIZE DATA
+    // =========================
+    $name    = sanitize_text_field($body['name'] ?? '');
+    $email   = sanitize_email($body['email'] ?? '');
+    $phone   = sanitize_text_field($body['phone'] ?? '');
+    $message = sanitize_textarea_field($body['message'] ?? '');
+    $time    = date('H:i d/m/Y');
+
+    // =========================
+    // SAVE TO CPT
+    // =========================
+    wp_insert_post([
+        'post_type'   => 'duoMen_contact',
         'post_status' => 'publish',
-        'post_content'=> wp_json_encode($data, JSON_UNESCAPED_UNICODE)
+        'post_content'=> wp_json_encode([
+            'name'    => $name,
+            'email'   => $email,
+            'phone'   => $phone,
+            'message' => $message,
+            'time'    => $time,
+        ], JSON_UNESCAPED_UNICODE),
     ]);
 
-    if (is_wp_error($post_id)) {
-        return new WP_Error('save_failed', 'Could not save contact', array('status' => 500));
+    // =========================
+    // RETURN RESPONSE EARLY
+    // =========================
+    $response = new WP_REST_Response([
+        'message' => 'Contact saved. Email is being sent.'
+    ]);
+
+    ignore_user_abort(true);
+    header("Connection: close");
+    header("Content-Encoding: none");
+
+    $output = wp_json_encode($response->get_data());
+    echo $output;
+
+    header("Content-Type: application/json; charset=UTF-8");
+    header("Content-Length: " . strlen($output));
+
+    if (function_exists('fastcgi_finish_request')) {
+        fastcgi_finish_request();
+    } else {
+        ob_end_flush();
+        flush();
     }
 
-    return new WP_REST_Response([
-        'success' => true,
-        'message' => 'Saved!',
-        'id'      => $post_id
-    ], 200);
+    // =========================
+    // SMTP CONFIG (GMAIL)
+    // =========================
+    $host     = 'smtp.gmail.com';
+    $port     = 587;
+    $username = 'dtam768@gmail.com';
+    $password = 'ektc qfug ifng asho'; 
+    $secure   = 'tls';
+    $receiver = 'cx@mhdpharma.com';
+
+    // =========================
+    // EMAIL TEMPLATE
+    // =========================
+    $subject = 'Thông báo yêu cầu tư vấn mới từ website duomen.vn';
+
+    $template = "
+    Chào MHD Pharma,
+
+    Bạn vừa nhận được một yêu cầu tư vấn mới từ website duomen.vn.
+
+    Thông tin chi tiết của khách hàng như sau:
+    Họ và tên: {{name}}
+    Số điện thoại: {{phone}}
+    Email: {{email}}
+    Nội dung quan tâm: {{message}}
+    Thời gian gửi: {{time}}
+
+    Vui lòng liên hệ với khách hàng trong thời gian sớm nhất để đảm bảo trải nghiệm tốt nhất.
+
+    Trân trọng,
+    Hệ thống website duomen.vn
+    ";
+
+    // =========================
+    // SEND EMAIL
+    // =========================
+    try {
+        $mailer = new SMTP_Mailer();
+        $mailer->load([
+            'host'     => $host,
+            'port'     => $port,
+            'username' => $username,
+            'password' => $password,
+            'secure'   => $secure,
+        ]);
+
+        $content = strtr($template, [
+            '{{name}}'    => $name,
+            '{{phone}}'   => $phone,
+            '{{email}}'   => $email,
+            '{{message}}' => $message,
+            '{{time}}'    => $time,
+        ]);
+
+        $mailer->send([
+            'subject'  => $subject,
+            'body'     => $content,
+            'receiver' => $receiver,
+        ]);
+
+    } catch (\Exception $e) {
+        error_log('[DUOMEN CONTACT MAIL ERROR] ' . $e->getMessage());
+    }
+
+    return null; // ⚠️ response đã trả trước đó
 }

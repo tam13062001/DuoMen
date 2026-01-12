@@ -34,7 +34,7 @@
                 src="<?php echo get_stylesheet_directory_uri().'/assets/images/duo 1.png' ?>" 
                 alt=""
                 class="absolute lg:hidden 
-                    top-[12%] left-0 ip:left-0 md:left-[22%] lg:left-[20%] -translate-x-1/2
+                    top-[12%] left-[-10px] ip:left-[-10px] md:left-[22%] lg:left-[20%] -translate-x-1/2
                     w-[230px] h-auto md:w-[300px]
                     "
                 data-aos="fade-left"
@@ -46,7 +46,7 @@
                 alt=""
                 class="absolute
                     top-[-10px]
-                    right-[-20px] md:right-[20%] ip:right-[-10px] lg:right-[10.5%] xl:right-[18.5%] 2xl:right-[24.6%] 6xl:right-[36.2%] 4xl:right-[28.2%]
+                    right-[-10px] md:right-[20%] ip:right-0 lg:right-[10.5%] xl:right-[18.5%] 2xl:right-[24.6%] 6xl:right-[36.2%] 4xl:right-[28.2%]
                     w-[123px] h-[100px] lg:w-[239px] lg:h-[231px]
                     animate-pulse-pill-header"
                 data-aos="fade-left"
@@ -55,10 +55,10 @@
 
     
         <!-- TEXT -->
-        <div class="mx-auto lg:w-[710px] w-full text-left lg:pt-[500px] pt-[220px] md:pt-[260px]  text-[#333] leading-[1.7] space-y-6  mx-auto px-4 lg:px-0 ">
+        <div class="lg:mx-auto lg:w-[710px] w-[310px] text-left lg:pt-[500px] pt-[220px] md:pt-[260px]  text-[#333] leading-[1.7] space-y-6  px-2 lg:px-0 ">
 
             <p class=" lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">
-                <span class="color-change"><span class="font-bold">Duo</span>Men</span> được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold">MHD Pharma <br class="ip:block hidden lg:hidden "> phân phối</span> độc quyền tại Việt Nam.
+                <span class="color-change"><span class="font-bold">Duo</span>Men</span> được nghiên cứu và phát triển bởi Aora Health <span class="font-bold">(Tây Ban Nha)</span> & được <span class="font-bold"> MHD Pharma <br class="block lg:hidden "> phân phối</span> độc quyền tại Việt Nam.
             </p>
 
             <p class="lg:text-[22px] text-[13px] font-normal" data-aos="fade-down">

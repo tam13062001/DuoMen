@@ -41,18 +41,18 @@ export default function ContactPage() {
 
   return (
     <div style={{ marginTop: 20, paddingRight: 20 }}>
-<Space
-  align="center"
-  style={{ marginBottom: 16, width: "100%", }}
->
-  <Typography.Title level={2} style={{ margin: 0 }}>
-    Contacts
-  </Typography.Title>
+    <Space
+      align="center"
+      style={{ marginBottom: 16, width: "100%", }}
+    >
+      <Typography.Title level={2} style={{ margin: 0 }}>
+        Contacts
+      </Typography.Title>
 
-  <Button type="primary" onClick={exportToExcel}>
-    Xuất Excel
-  </Button>
-</Space>
+      <Button type="primary" onClick={exportToExcel}>
+        Xuất Excel
+      </Button>
+    </Space>
 
       {error && <div style={{ color: 'red' }}>{error}</div>}
 
