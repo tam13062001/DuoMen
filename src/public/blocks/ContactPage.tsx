@@ -100,13 +100,14 @@ export default function ContactForm() {
           name="email"
           control={control}
           rules={{
+            required: 'Vui lòng nhập email',
             validate: (value: string) =>
               !value || /^\S+@\S+\.\S+$/.test(value) || 'Email không hợp lệ'
           }}
           render={({ field, fieldState }) => (
             <div>
               <label className="text-sm font-medium text-gray-700 mb-1 block">
-                Email (không bắt buộc)
+                Email <span className="text-red-800">*</span>
               </label>
               <Input
                 {...field}

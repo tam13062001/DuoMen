@@ -7,6 +7,7 @@ import FloatingContact from './components/Panel';
 import Header from './components/Menu';
 import ContactPage from './blocks/ContactPage';
 import Text from './blocks/text';
+import ContactFormVourcher from './blocks/ContactVourcher';
 
 registerComponent('text-block', Text)
 registerComponent('rocket-example', ExampleBlock)
@@ -15,6 +16,7 @@ registerComponent('collapse-block', CollapseBlock)
 registerComponent('floating-contact', FloatingContact)
 registerComponent('header-menu', Header)
 registerComponent('contact-page', ContactPage)
+registerComponent('contact-voucher', ContactFormVourcher)
 
 document.addEventListener('DOMContentLoaded', function () {
   const containers = document.querySelectorAll("[class^='wp-block-rocket']")

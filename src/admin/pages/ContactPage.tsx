@@ -62,6 +62,7 @@ export default function ContactPage() {
           { title: 'Name', dataIndex: 'name' },
           { title: 'Email', dataIndex: 'email' },
           { title: 'Phone', dataIndex: 'phone' },
+          { title : 'Time', dataIndex: 'time' },
         ]}
       />
     </div>

@@ -81,7 +81,7 @@
             <p class="text-[18px] font-bold mb-3 text-[#E02230] ">
                 Viên nang trong bổ sung Men vi sinh cho Ruột: 05 tỷ lợi khuẩn sống và thức ăn cho lợi khuẩn
             </p>
-            <p class="text-[17px] font-Regular text-[#E02230]">Giúp xử lý <span class="font-bold"> Tiêu chảy </span> nhờ cân bằng </br> hệ vi sinh đường ruột
+            <p class="text-[17px] font-Regular text-[#E02230]">Giúp cải thiện<span class="font-bold"> Tiêu chảy </span> nhờ cân bằng </br> hệ vi sinh đường ruột
             </p>
         </div>
 
@@ -220,7 +220,7 @@
             <p class="text-[12px] font-bold text-[#E02230] mt-[69px] ml-[10px]">
                 Viên nang trong bổ sung Men vi sinh cho Ruột: 05 tỷ Lợi khuẩn sống và thức ăn cho lợi khuẩn
             </p>
-            <p class="text-[12px] font-Regular text-[#E02230] mt-3 ml-[10px]"> Giúp xử lý  <span class="font-bold"> Tiêu chảy </span> nhờ cân bằng hệ vi sinh đường ruột
+            <p class="text-[12px] font-Regular text-[#E02230] mt-3 ml-[10px]"> Giúp cải thiện <span class="font-bold"> Tiêu chảy </span> nhờ cân bằng hệ vi sinh đường ruột
             </p>
         </div>
 
@@ -302,7 +302,7 @@
                          Uống 1 đến 2 viên/ngày, mỗi lần 1 viên, uống ngay đầu bữa ăn chính.
                         <ul>
                             <li class="ml-3">Dùng ít nhất 1–2 tuần để cải thiện triệu chứng rõ rệt.</li>
-                            <li class="ml-3">Để ổn định hệ vi sinh đường ruột và tiêu hoá bền vững, nên duy trì 1–3 tháng.</li>
+                            <li class="ml-3">Để ổn định hệ vi sinh đường ruột và tiêu hoá bền vững, nên duy trì 1 thời gian.</li>
                         </ul>',
                     ),
                     array(
@@ -310,7 +310,7 @@
                         'content' => '
                             <ul>
                                 
-                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change font-bold">Duo<span class="font-normal">Men</span></span> với các thuốc điều trị. Tuy nhiên, nếu như bạn đang sử dụng thuốc hoặc có tiền sử dị ứng thuốc, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
+                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change font-bold">Duo<span class="font-normal">Men</span></span> với các thảo dược điều trị khác. Tuy nhiên, nếu như bạn đang sử dụng thảo dược hoặc có tiền sử dị ứng thảo dược, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
                             </ul>',
                     ),
                 ),

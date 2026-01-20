@@ -36,8 +36,10 @@
                         Giấy chứng nhận ĐKKD số 0311203203 do Phòng Đăng Ký Kinh Doanh<br>
                         – Sở Kế hoạch Đầu tư TP. Hồ Chí Minh cấp ngày 03/10/2011
                     </p>
-
-                    <p class="text-[14px] mt-4 opacity-90 ">
+                    <p class="text-[14px] mt-2">
+                        Sản phẩm không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh
+                    </p>
+                    <p class="text-[14px] mt-2 opacity-90 ">
                         Bản Quyền © 2025 MHDPharma
                         <a href="/privacy" class="ml-2">Chính sách bảo mật</a>
                         <a href="/term" class="ml-2">Điều khoản sử dụng</a>
@@ -96,7 +98,9 @@
                         Giấy chứng nhận ĐKKD số 0311203203 do Phòng Đăng Ký Kinh Doanh<br>
                         – Sở Kế hoạch Đầu tư TP. Hồ Chí Minh cấp ngày 03/10/2011
                     </p>
-
+                    <p class="mt-2">
+                        Sản phẩm không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh
+                    </p>
                     <p class=" mt-2 opacity-90 ">
                         Bản Quyền © 2025 MHDPharma <br>
                         <a href="/privacy" class=""> Chính sách bảo mật</a>
