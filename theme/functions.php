@@ -155,88 +155,118 @@ $rocket->register_rest_api('send-voucher', [
 ]);
 
 function handle_send_esms_voucher($request) {
-    global $wpdb; // Gọi đối tượng database của WP
+    global $wpdb; 
 
-    // 1. Lấy số điện thoại từ Frontend
+    // 1. Lấy dữ liệu từ Request
     $params = $request->get_json_params();
     $phone = isset($params['phone']) ? sanitize_text_field($params['phone']) : '';
+    $name = isset($params['name']) ? sanitize_text_field($params['name']) : 'Khách hàng';
 
     if (empty($phone)) {
         return new WP_Error('missing_phone', 'Vui lòng nhập số điện thoại', array('status' => 400));
     }
 
-    // =================================================================
-    // BƯỚC A: LOGIC LOCK VÀ LẤY MÃ VOUCHER TỪ DATABASE
-    // =================================================================
-    
-     $table_name = 'duomen_db.vouchers'; // Tên bảng (ví dụ: wp_vouchers)
-    $lock_session_id = uniqid('sms_req_', true); // Tạo ID phiên duy nhất cho request này
+    $table_name = 'duomen_db.promo_codes'; // Tên bảng dựa theo hình ảnh
 
-    // 1. Thực hiện LOCK mã cũ nhất (FIFO) chưa dùng
-    // Logic: Tìm mã used=0, chưa bị lock (hoặc lock quá 5 phút), gán session_id vào
-    $wpdb->query($wpdb->prepare(
-        "UPDATE $table_name 
-         SET locked_at = NOW(), lock_session_id = %s 
-         WHERE used = 0 
-         AND (locked_at IS NULL OR locked_at < DATE_SUB(NOW(), INTERVAL 5 MINUTE)) 
-         ORDER BY id ASC 
-         LIMIT 1",
-        $lock_session_id
+    // =================================================================
+    // BƯỚC A: KIỂM TRA LOGIC & LẤY MÃ (QUAN TRỌNG)
+    // =================================================================
+
+    // 1. KIỂM TRA: SĐT này đã nhận mã chưa?
+    // Cột trong DB: phone_number
+    $existing_voucher = $wpdb->get_row($wpdb->prepare(
+        "SELECT code_value, created_at FROM $table_name WHERE phone_number = %s LIMIT 1",
+        $phone
     ));
 
-    // 2. Lấy mã vừa khóa được ra
-    $voucher = $wpdb->get_row($wpdb->prepare(
-        "SELECT * FROM $table_name WHERE lock_session_id = %s",
-        $lock_session_id
-    ));
-
-    // Nếu không lấy được mã nào -> Kho hết hoặc đang bận
-    if (!$voucher) {
-        return new WP_Error('out_of_stock', 'Hiện tại đã hết mã ưu đãi, vui lòng quay lại sau.', array('status' => 400));
+    if ($existing_voucher) {
+        // Nếu đã nhận rồi, trả về lỗi hoặc thông báo (tùy nghiệp vụ của bạn)
+        return new WP_Error('already_received', 'Số điện thoại này đã nhận mã ưu đãi rồi: ' . $existing_voucher->code_value, array('status' => 400));
     }
 
-    $voucher_code = $voucher->code; // Mã sẽ gửi đi (Thay cho $otp cũ)
+    // 2. TÌM VÀ GIỮ CHỖ MỘT MÃ CÒN TRỐNG
+    // Chúng ta cần tìm mã có status = 0 và chưa có phone_number
+    // Sử dụng Transaction hoặc Atomic Update để tránh 2 người lấy cùng 1 mã
+    
+    // Lấy 1 dòng đang rảnh
+    $voucher = $wpdb->get_row("SELECT id, code_value FROM $table_name WHERE status = 0 AND phone_number IS NULL LIMIT 1");
+
+    if (!$voucher) {
+        return new WP_Error('out_of_stock', 'Hiện tại đã hết mã ưu đãi.', array('status' => 400));
+    }
+
+    // Cập nhật ngay lập tức để "xí phần" mã này cho SĐT hiện tại
+    // Điều kiện WHERE id = ... AND status = 0 để đảm bảo không bị người khác lấy mất trong tích tắc
+    $updated = $wpdb->query($wpdb->prepare(
+        "UPDATE $table_name 
+         SET phone_number = %s, full_name = %s, status = 1, used_at = NOW() 
+         WHERE id = %d AND status = 0",
+        $phone, 
+        $name, 
+        $voucher->id
+    ));
+
+    // Nếu update trả về 0 dòng, nghĩa là mã này vừa bị người khác lấy -> Thử lại hoặc báo lỗi
+    if (!$updated) {
+        return new WP_Error('system_busy', 'Hệ thống đang bận, vui lòng thử lại.', array('status' => 409));
+    }
+
+    $voucher_code = $voucher->code_value; // Cột trong DB là code_value
 
     // =================================================================
-    // BƯỚC B: GỬI SMS (ESMS)
+    // BƯỚC B: CẤU HÌNH GỬI ZALO (ESMS)
     // =================================================================
 
     $apiKey = '0A48D5AFF2519A81397059AC88029A'; 
     $secretKey = '6669C22354B63C1CEE4203127F77C7';
+    $oaId      = '4097311281936189049'; 
+    $tempId    = '200607';
 
-    $payload = array(
-        "ApiKey"    => $apiKey,
-        "SecretKey" => $secretKey,
-        "Phone"     => $phone,
-        
-        // Thay $otp bằng $voucher_code
-        "Content"   => "$voucher_code la ma xac minh dang ky Baotrixemay cua ban", 
-        
-        "Brandname" => "Baotrixemay", 
-        "SmsType"   => "2", 
-        "IsUnicode" => "0", 
-        "RequestId" => wp_generate_uuid4(),
-        "campaignid" => "Voucher Send", // Đổi tên chiến dịch cho dễ quản lý
-        "CallbackUrl" => ""
+    $current_date = date('d/m/Y');
+
+    // Cấu trúc data gửi đi
+    $tempData = array(
+        "customer_name"  => "Khách hàng $name",          
+        "order_code"     => "VC_" . $voucher->id,      
+        "address"        => "Online", 
+        "phone"          => $phone,                
+        "email"          => "support@duomen.vn",
+        "product_name"   => "Mã ưu đãi: " . $voucher_code, // Hiển thị mã code lên tin nhắn
+        "quantity"       => "1",
+        "payment_amount" => "0",                   
+        "delivery_date"  => "$current_date "         
     );
 
-    $url = 'https://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_post_json/';
+    $payload = array(
+        "ApiKey"      => $apiKey,
+        "SecretKey"   => $secretKey,
+        "OAID"        => $oaId,
+        "Phone"       => $phone,
+        "TempData"    => $tempData,
+        "TempID"      => $tempId,
+        "SendingMode" => "1", 
+        "campaignid"  => "GuiMaVoucher", 
+        "RequestId"   => wp_generate_uuid4(),
+        "CallbackUrl" => "https://esms.vn/webhook/"
+    );
+
+    $url = 'https://rest.esms.vn/MainService.svc/json/SendZaloMessage_V6/';
+    
     $response = wp_remote_post($url, array(
         'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
         'body'        => json_encode($payload),
         'method'      => 'POST',
-        'data_format' => 'body',
         'timeout'     => 45
     ));
 
     // =================================================================
-    // BƯỚC C: XỬ LÝ KẾT QUẢ VÀ CẬP NHẬT DATABASE
+    // BƯỚC C: XỬ LÝ KẾT QUẢ VÀ ROLLBACK NẾU LỖI
     // =================================================================
 
     if (is_wp_error($response)) {
-        // Lỗi kết nối -> Phải NHẢ LOCK để người khác dùng mã này
-        release_voucher_lock($table_name, $lock_session_id);
-        return new WP_Error('api_error', 'Lỗi kết nối Server SMS', array('status' => 500));
+        // Lỗi kết nối -> Phải hoàn trả (Rollback) mã voucher lại trạng thái cũ
+        rollback_voucher($table_name, $voucher->id);
+        return new WP_Error('api_error', 'Lỗi kết nối Server Zalo', array('status' => 500));
     }
 
     $body = wp_remote_retrieve_body($response);
@@ -245,33 +275,38 @@ function handle_send_esms_voucher($request) {
     // Kiểm tra thành công (CodeResult 100)
     if (isset($result['CodeResult']) && $result['CodeResult'] == "100") {
         
-        // THÀNH CÔNG: Chốt đơn (Lock vĩnh viễn)
-        // Update used = 1, cập nhật ngày dùng, xóa session tạm
-        $wpdb->query($wpdb->prepare(
-            "UPDATE $table_name 
-             SET used = 1, used_at = NOW(), locked_at = NULL, lock_session_id = NULL 
-             WHERE lock_session_id = %s",
-            $lock_session_id
-        ));
-
+        // Thành công: Dữ liệu đã update ở Bước A rồi nên không cần update nữa.
         return new WP_REST_Response(array(
             'status' => 'success',
             'message' => 'Đã gửi mã ưu đãi thành công',
+            'voucher_code' => $voucher_code,
+            'zalo_msg_id' => $result['SMSID'] ?? ''
         ), 200);
 
     } else {
-        // THẤT BẠI: Lỗi từ phía eSMS (ví dụ sai số, hết tiền...)
-        // Phải NHẢ LOCK để mã này quay về kho (used=0) cho người khác
-        release_voucher_lock($table_name, $lock_session_id);
+        // THẤT BẠI TỪ ZALO: Phải hoàn trả (Rollback) mã voucher
+        rollback_voucher($table_name, $voucher->id);
 
         return new WP_REST_Response(array(
             'status' => 'error',
-            'message' => 'Lỗi gửi tin nhắn: ' . ($result['ErrorMessage'] ?? $result['CodeResult']),
+            'message' => 'Lỗi gửi Zalo: ' . ($result['ErrorMessage'] ?? $result['CodeResult']),
             'detail' => $result
-        ), 200);
+        ), 400); // 400 Bad Request
     }
 }
 
+/**
+ * Hàm phụ: Hoàn trả voucher về trạng thái chưa dùng nếu gửi tin nhắn thất bại
+ */
+function rollback_voucher($table_name, $voucher_id) {
+    global $wpdb;
+    $wpdb->query($wpdb->prepare(
+        "UPDATE $table_name 
+         SET phone_number = NULL, full_name = NULL, status = 0, used_at = NULL 
+         WHERE id = %d",
+        $voucher_id
+    ));
+}
 // Hàm phụ trợ để nhả Lock (Rollback)
 function release_voucher_lock($table, $session_id) {
     global $wpdb;
