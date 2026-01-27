@@ -165,9 +165,10 @@ function handle_send_esms_voucher($request) {
     if (empty($phone)) {
         return new WP_Error('missing_phone', 'Vui lòng nhập số điện thoại', array('status' => 400));
     }
-
-    $table_name = 'duomen_db.promo_codes'; // Tên bảng dựa theo hình ảnh
-
+    
+    // local : duomen_db, remote: u623323914_LWkMX
+    $table_name = 'u623323914_LWkMX.promo_codes'; // Tên bảng dựa theo hình ảnh
+    
     // =================================================================
     // BƯỚC A: KIỂM TRA LOGIC & LẤY MÃ (QUAN TRỌNG)
     // =================================================================
@@ -234,7 +235,7 @@ function handle_send_esms_voucher($request) {
         "product_name"   => "Mã ưu đãi: " . $voucher_code, // Hiển thị mã code lên tin nhắn
         "quantity"       => "1",
         "payment_amount" => "0",                   
-        "delivery_date"  => "$current_date "         
+        "delivery_date"  => "$current_date"         
     );
 
     $payload = array(

@@ -8,7 +8,12 @@
 
     <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Vector_4.png' ?>" alt="" class="lg:block hidden absolute top-[200px] right-0">
     <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Vector_3.png' ?>" alt="" class="lg:block hidden absolute top-[500px] left-0">
-
+    <a href="#voucher" 
+    class="fixed bottom-6 left-6 z-[9999] hover:scale-110 transition-transform duration-300 ease-in-out md:w-[160px] w-[80px]">
+        <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/Pop up 1.png' ?>" 
+            class="w-full h-auto drop-shadow-2xl" 
+            alt="Voucher">
+    </a>
     <div class="">
         <?php render_rocket_block('floating-contact'); ?>
     </div>
@@ -327,6 +332,10 @@
 
         </div>
 
+        <div class="mb-[100px]" id="voucher" data-aos="fade-left" data-aos-delay="300">
+            <?php render_rocket_block('contact-voucher'); ?>
+        </div>
+
         <div class="relative z-40 absolute top-[150px]">
             <!-- HÌNH ĐẦU TIÊN (Chớp nhẹ) -->
             <img 
@@ -418,7 +427,5 @@
             window.addEventListener("scroll", triggerAnimUpDown);
         });
     </script>
-
-
 
 <?php get_footer(); ?>
