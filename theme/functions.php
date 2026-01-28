@@ -167,7 +167,7 @@ function handle_send_esms_voucher($request) {
     }
     
     // local : duomen_db, remote: u623323914_LWkMX
-    $table_name = 'u623323914_LWkMX.promo_codes'; // Tên bảng dựa theo hình ảnh
+    $table_name = 'duomen_db.promo_codes'; // Tên bảng dựa theo hình ảnh
     
     // =================================================================
     // BƯỚC A: KIỂM TRA LOGIC & LẤY MÃ (QUAN TRỌNG)
@@ -182,7 +182,7 @@ function handle_send_esms_voucher($request) {
 
     if ($existing_voucher) {
         // Nếu đã nhận rồi, trả về lỗi hoặc thông báo (tùy nghiệp vụ của bạn)
-        return new WP_Error('already_received', 'Số điện thoại này đã nhận mã ưu đãi rồi: ' . $existing_voucher->code_value, array('status' => 400));
+        return new WP_Error('already_received', 'Số điện thoại này đã được dùng để đăng ký nhận mã, vui lòng nhập thông tin khác', array('status' => 400));
     }
 
     // 2. TÌM VÀ GIỮ CHỖ MỘT MÃ CÒN TRỐNG

@@ -315,7 +315,7 @@
                         'content' => '
                             <ul>
                                 
-                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change font-bold">Duo<span class="font-normal">Men</span></span> với các thảo dược điều trị khác. Tuy nhiên, nếu như bạn đang sử dụng thảo dược hoặc có tiền sử dị ứng thảo dược, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
+                                <li><span class="color-change"><span class="font-bold">Duo</span>Men</span> chứa Men tiêu hóa và Men vi sinh, chỉ hoạt động cục bộ ngay tại đường tiêu hóa. Hiện chưa ghi nhận tương tác bất lợi giữa <span class="color-change font-bold">Duo<span class="font-normal">Men</span></span> với các thảo dược điều trị khác. Nếu bạn đang sử dụng các sản phẩm điều trị hoặc có tiền sử dị ứng, hãy tham khảo ý kiến chuyên gia trước khi dùng.  </li>
                             </ul>',
                     ),
                 ),
